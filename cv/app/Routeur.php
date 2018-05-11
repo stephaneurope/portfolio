@@ -8,7 +8,7 @@ class Routeur {
 
 
   public function checkUrl(){
-    $ctrlfrontend = new \Controller\FrontendController;
+    $ctrlfrontend = new \Controller\FrontendController();
     $ctrlBackend = new \Controller\BackendController();
     $ctrlAdmin = new \Controller\AdminController();
     $ctrlContact = new \Controller\ContactController();

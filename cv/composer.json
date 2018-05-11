@@ -10,7 +10,7 @@
 
     "autoload": {
     "psr-4" :{
-        "Stephan\\": "",
+        "Stephan": "app/",
         "Model\\": "model/",
         "Controller\\": "controller/",
         "Cv\\": "view/frontend/",
