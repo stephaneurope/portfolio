@@ -40,14 +40,15 @@
 <script src="public/js/checkbox.js"></script>
 <script src="public/js/ajax.js"></script>
 <script src="public/js/instagram.js"></script>
+<script src="public/langs/fr.js"></script>
     <script>
         tinymce.init({
             selector: "textarea"
             , selector: "textarea:not(.mceNoEditor)"
-            , language_url: 'public/langs/fr_FR.js'
-            , theme: 'modern'
+            , language_url: "public/langs/fr_FR.js"
+            , theme: "modern"
             , entity_encoding: "raw"
-            , plugins: 'lists advlist image imagetools'
+            , plugins: "lists advlist image imagetools"
             , forced_root_block: false
             , force_br_newlines: true
             , force_p_newlines: false

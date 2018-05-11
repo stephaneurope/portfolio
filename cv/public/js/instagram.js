@@ -65,6 +65,6 @@ document.getElementById("profil").appendChild(btn);
 
 }
 
-instagram.init();
+//instagram.init();
 
 

@@ -18,4 +18,5 @@
 </div>
 </section>
 
+<scipt>instagram.init();</script>
 

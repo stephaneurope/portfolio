@@ -85,5 +85,5 @@
 
 </div>
 
-  
+  <script>Impression.imprimer();</script>
    

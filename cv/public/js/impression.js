@@ -34,4 +34,4 @@ imprime.addEventListener('click', function (e) {
  });
 }
 };
-Impression.imprimer();
+//Impression.imprimer();
