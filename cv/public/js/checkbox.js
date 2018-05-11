@@ -1,11 +1,11 @@
 $(document).ready(function(){
 $('.chkbx').click(function(){
     var text="";
-    $('.chkbx:checked').each(function(){
-        text+=$(this).val()+ ' ';
+    $(".chkbx:checked").each(function(){
+        text+=$(this).val()+ " ";
 });
     text=text.substring(0,text.length-1);
-    $('#selectedtext').val(text);
+    $("#selectedtext").val(text);
     var count=$("[type='checkbox']:checked").length;
 });
 

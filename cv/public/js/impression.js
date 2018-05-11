@@ -33,5 +33,5 @@ imprime.addEventListener('click', function (e) {
 });
  });
 }
-}
+};
 Impression.imprimer();
