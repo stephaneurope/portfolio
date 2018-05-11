@@ -1,0 +1,21 @@
+{
+    "name": "Serri/App",
+    "authors": [
+        {
+            "name": "serri stephan",
+            "email": "serri.stephan@gmail.com"
+        }
+    ],
+    "require": {},
+
+    "autoload": {
+    "psr-4" :{
+        "Stephan\\": "",
+        "Model\\": "model/",
+        "Controller\\": "controller/",
+        "Cv\\": "view/frontend/",
+        "App\\": "app/"
+        
+     }
+}
+}
