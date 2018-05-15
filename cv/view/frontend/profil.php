@@ -1,4 +1,4 @@
-  <?php  include "menu.php" ?>
+<?php  include "menu.php" ?>
 <div class="container all">
   <br> <br>
     <h1>Profil</h1>

@@ -1,6 +1,5 @@
 <?php 
-
-namespace Cv;
+namespace Folio;
 
 class View {
 
@@ -21,6 +20,17 @@ class View {
     $content = $this->genererFichier($this->fichier, $donnees);
     // Génération du gabarit commun utilisant la partie spécifique
     $view = $this->genererFichier('view/frontend/template.php',
+      array('title' => $this->title, 'content' => $content));
+     
+    // Renvoi de la vue au navigateur
+    echo $view;
+  }
+  // Génère et affiche la vue
+  public function genererpdf($donnees) {
+    // Génération de la partie spécifique de la vue
+    $content = $this->genererFichier($this->fichier, $donnees);
+    // Génération du gabarit commun utilisant la partie spécifique
+    $view = $this->genererFichier('',
       array('title' => $this->title, 'content' => $content));
      
     // Renvoi de la vue au navigateur

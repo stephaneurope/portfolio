@@ -13,6 +13,7 @@
 
 .clear {
     clear: both;
+
 }
 
 #top p {
@@ -32,10 +33,12 @@
 .mainDetails {
     padding: 25px 35px;
 
-    border-bottom: 2px solid #d82c2e;
+    /**border-bottom: 2px solid #d82c2e;**/
     background: #ededed;
 }
-
+.traitrouge{
+    border-bottom: 2px solid #d82c2e;
+}
 #name h1 {
     font-size: 2.5em;
     font-weight: 600;
@@ -73,6 +76,7 @@
 
 #contactDetails {
     float: right;
+
 }
 
 #contactDetails ul {
@@ -98,7 +102,7 @@ a[href^=tel] {
 }
 
 #contactDetails ul li a:hover {
-    /*color: #cf8a05;*/
+
     color: #d82c2e;
 }
 

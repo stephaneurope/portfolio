@@ -6,14 +6,16 @@
             "email": "serri.stephan@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "spipu/html2pdf": "^5.1"
+    },
 
     "autoload": {
     "psr-4" :{
         "Stephan\\": "app/",
         "Model\\": "model/",
         "Controller\\": "controller/",
-        "Cv\\": "view/frontend/",
+        "Folio\\": "view/frontend/",
         "App\\": "app/"
         
      }

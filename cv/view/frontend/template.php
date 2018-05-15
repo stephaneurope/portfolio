@@ -40,7 +40,7 @@
 <script src="public/js/checkbox.js"></script>
 <script src="public/js/ajax.js"></script>
 <script src="public/js/instagram.js"></script>
-<script src="public/langs/fr.js"></script>
+<script src="public/langs/fr_FR.js"></script>
     <script>
         tinymce.init({
             selector: "textarea"
@@ -66,7 +66,7 @@
         </div>
 </div>
 
-    <footer class="text-center container-fluid site-footer ">
+       <footer class="text-center container-fluid site-footer ">
         <a href="#about"> <span class="glyphicon glyphicon-chevron-up"></span>  </a><br>
      <?php if (!$_SESSION) { ?>   <a href="index.php?action=connect" style='color:#fff;'>connexion</a><?php } else { ?><a href="index.php?action=deconnexion" style='color:#fff;'>déconnexion</a><br><a href="index.php?action=boardPrincipal" style='color:#fff;'>administration</a> <?php } ?>
         <h5>© 2018 SERRI-STEPHAN.COM</h5></footer>

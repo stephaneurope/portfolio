@@ -7,6 +7,7 @@
     <div id="cv" class="instaFade">
 
         <div class="mainDetails">
+           
           <?php while ($data0 = $result->fetch()){  ?>  
             <div id="headshot" class="img_profil quickFade"> <img src="public/images/<?=$data0['profil_img']?>"  alt="Serri Stephan" /> </div>
              <div id="imprime_moi">
@@ -22,6 +23,7 @@
                 </ul>
                 <?php } ?>
             </div>
+
             <div class="clear"></div>
        
         <div id="mainArea" class="quickFade delayFive">
@@ -79,8 +81,9 @@
         </div>
     </div>
  </div>
-    </div> <div class='imprime'>
-    <button type='btn' id="btn_imprime" class='btn btn-danger'><i class="fas fa-print"></i> Imprimer</button><a href="public/pdf/cvstephan.pdf" download  > <button class="btn btn-danger"><i class="fa fa-download"></i> Télécharger</button></a></div>
+    </div> 
+    <div class='imprime'>
+    <button type='btn' id="btn_imprime" class='btn btn-danger'><i class="fas fa-print"></i> Imprimer</button><a href="index.php?action=pdf"  > <button class="btn btn-danger"><i class="fa fa-download"></i> Télécharger</button></a></div>
     
 
 </div>

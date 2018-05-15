@@ -7,8 +7,9 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Stephan\\' => array($baseDir . '/app'),
+    'Spipu\\Html2Pdf\\' => array($vendorDir . '/spipu/html2pdf/src'),
     'Model\\' => array($baseDir . '/model'),
-    'Cv\\' => array($baseDir . '/view/frontend'),
+    'Folio\\' => array($baseDir . '/view/frontend'),
     'Controller\\' => array($baseDir . '/controller'),
     'App\\' => array($baseDir . '/app'),
 );

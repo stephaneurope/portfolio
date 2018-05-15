@@ -1,7 +1,7 @@
 <?php
 namespace Controller;
-
 //require "vendor/autoload.php"; 
+require"view/frontend/View.php";
 class ContactController{
 
 
@@ -19,7 +19,7 @@ public function contact()
   {
 
      
-       $view = new \Cv\View('contactView');
+       $view = new \Folio\View('contactView');
        $view->generer(['firstnameError'=>$this->firstnameError, 'nameError'=>$this->nameError,'phoneError'=>$this->phoneError, 'mailError'=>$this->mailError,'messageError'=>$this->messageError, 'message1' =>$this->message1]);
     
 }
@@ -107,7 +107,7 @@ public function contactForm() {
         
    } 
 
-   $view = new \Cv\View('contactView');
+   $view = new \Folio\View('contactView');
        $view->generer(['firstnameError'=>$this->firstnameError, 'nameError'=>$this->nameError,'phoneError'=>$this->phoneError, 'mailError'=>$this->mailError,'messageError'=>$this->messageError,'message1' =>$this->message1]);
 
 }

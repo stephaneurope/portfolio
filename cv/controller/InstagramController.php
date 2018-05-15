@@ -8,7 +8,7 @@ class InstagramController{
 public function instagramView()
   {
 
-    $view = new \Cv\View('instagram');
+    $view = new \Folio\View('instagram');
     $view->generer([]);
     
 }

@@ -61,7 +61,7 @@ public function deleteSession() {
 public function profil(){
 $adminManager = new \Model\AdminManager();
     $result = $adminManager->identity();  
-$view = new \Cv\View('profil');
+$view = new \Folio\View('profil');
 $session = new \App\MessageFlash();
 $imageError = '';
    $view->generer(['result' => $result,'session' => $session,'imageError'=>$imageError]);
@@ -125,7 +125,7 @@ $adminManager = new \Model\AdminManager();
 } else {
   $adminManager = new \Model\AdminManager();
     $result = $adminManager->identity();  
-    $view = new \Cv\View('profil');
+    $view = new \Folio\View('profil');
     $session = new \App\MessageFlash();
     $view->generer(
         [

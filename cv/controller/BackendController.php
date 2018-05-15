@@ -26,7 +26,7 @@ class BackendController{
 
    public function portfolioInsert()
 {
-    $view = new \Cv\View('portfolioInsert');
+    $view = new \Folio\View('portfolioInsert');
     $view->generer(['titreError'=>$this->titreError, 'descriptionError'=>$this->descriptionError, 'technoError'=>$this->technoError, 'commentError'=>$this->commentError,'imageError'=>$this->imageError,'liensError'=>$this->liensError,'titre'=>$this->titre,'description'=>$this->description,'techno'=>$this->techno,'comment'=>$this->comment,'image'=>$this->image,'liens'=>$this->liens,'isSuccess'=>$this->isSuccess]);
   }
 public function portfolioInsertAction($image, $description, $techno, $comment, $titre,$liens)
@@ -114,7 +114,7 @@ if(empty($this->titre)){
     header('location:index.php?action=boardFolio');
     exit();
 } else {
-    $view = new \Cv\View('portfolioInsert');
+    $view = new \Folio\View('portfolioInsert');
     $view->generer(
         [
             'titreError'=>$this->titreError,
@@ -143,7 +143,7 @@ public function imageFolio()
 {
   $folioManager = new \Model\FolioManager();
   $portfolio = $folioManager->getFolio($_GET['id']); 
- $view = new \Cv\View('imagefolioView');
+ $view = new \Folio\View('imagefolioView');
     $view->generer(['portfolio' => $portfolio,'imageError'=>$this->imageError]);
 }
 
@@ -195,7 +195,7 @@ $portfolio = new \Model\FolioManager();
 
 $folioManager = new \Model\FolioManager();
   $portfolio = $folioManager->getFolio($_GET['id']); 
- $view = new \Cv\View('imagefolioView');
+ $view = new \Folio\View('imagefolioView');
     $view->generer(['portfolio' => $portfolio,'imageError'=>$this->imageError,'image'=>$this->image,'imagePath '=>$this->imagePath,'imageExtension '=>$this->imageExtension,'isSuccess' =>$this->isSuccess,'isUploadSuccess'=>$this->isUploadSuccess,'isImageUpdated'=>$this->isImageUpdated]);
 
    
@@ -209,7 +209,7 @@ public function boardFolio()
 {
     $folioManager = new \Model\FolioManager();
     $portfolio = $folioManager->getFolio2(); 
-    $view = new \Cv\View('boardFolio');
+    $view = new \Folio\View('boardFolio');
     $view->generer(['portfolio' => $portfolio]);
 }
 
@@ -220,7 +220,7 @@ public function projectView()
     $portfolio = $folioManager->getFolio($_GET['id']); 
  
   
-    $view = new \Cv\View('projectView');
+    $view = new \Folio\View('projectView');
     $view->generer(['portfolio'=>$portfolio]);
     
 }
@@ -228,7 +228,7 @@ public function projectView()
 public function cleanProject($folioId){
        $folioManager = new \Model\FolioManager();
     $portfolio = $folioManager->getFolio($_GET['id']); 
-       $view = new \Cv\View('deleteProjectView'); 
+       $view = new \Folio\View('deleteProjectView'); 
        $view->generer(['portfolio'=>$portfolio]);
    }
 
@@ -244,7 +244,7 @@ public function portfolioModif($folioId)
 {
     $folioManager = new \Model\FolioManager();
     $portfolio = $folioManager->getFolio($_GET['id']); 
-    $view = new \Cv\View('portfolioModif');
+    $view = new \Folio\View('portfolioModif');
     $view->generer(['titreError'=>$this->titreError, 'descriptionError'=>$this->descriptionError, 'technoError'=>$this->technoError, 'commentError'=>$this->commentError,'liensError'=>$this->liensError,'titre'=>$this->titre,'description'=>$this->description,'techno'=>$this->techno,'comment'=>$this->comment,'liens'=>$this->liens,'isSuccess'=>$this->isSuccess, 'wrong'=>$this->wrong,'portfolio'=>$portfolio]);
   }
 
@@ -291,7 +291,7 @@ if(empty($this->titre)){
     $folioManager = new \Model\FolioManager();
       $portfolio = $folioManager->getFolio($_GET['id']); 
     $reaffected = $folioManager->updateProject($folioId,$description, $techno, $comment, $titre, $liens);
-    $view = new \Cv\View('portfolioModif');
+    $view = new \Folio\View('portfolioModif');
     header('location:index.php?action=boardFolio');
         $view->generer(
         [
@@ -315,7 +315,7 @@ if(empty($this->titre)){
   $folioManager = new \Model\FolioManager(); 
 $portfolio = $folioManager->getFolio($_GET['id']); 
 $this->$wrong = 'Désolé une erreur est survenu,veuillez recommencer';
-      $view = new \Cv\View('portfolioModif');
+      $view = new \Folio\View('portfolioModif');
 
         $view->generer(
         [
@@ -350,13 +350,13 @@ $session = new \App\MessageFlash();
 
    $proCv = $cvManager->getProCv();
    
-   $view = new \Cv\View('profilPersonnel');
+   $view = new \Folio\View('profilPersonnel');
    $view->generer(['proCv' => $proCv,'result' => $result,'session' => $session]);
     
 }
 public function updateProfilPersonnel($profil)
   {
-    if (!empty($_POST['profil'])) {
+    if (!empty(htmlspecialchars(ltrim($_POST['profil'])))) {
    $cvManager = new \Model\CvManager();
    $affected = $cvManager->updateProCv($profil);
       $session = new \App\MessageFlash();
@@ -379,7 +379,7 @@ public function experienceProfessionnel()
    $expCv = $cvManager->getExpCv();
  $result = $adminManager->identity();
  $session = new \App\MessageFlash();
-   $view = new \Cv\View('experienceProfessionnel');
+   $view = new \Folio\View('experienceProfessionnel');
    $view->generer(['expCv' => $expCv,'result' => $result,'session' => $session]);
     
 }
@@ -388,7 +388,7 @@ public function ajoutExPro()
    $adminManager = new \Model\AdminManager();
    $result = $adminManager->identity();
    $session = new \App\MessageFlash();
-   $view = new \Cv\View('ajoutExProView');
+   $view = new \Folio\View('ajoutExProView');
    $view->generer(['result' => $result,'session' => $session]);
     
 }
@@ -431,7 +431,7 @@ public function deleteExp()
   $cvManager = new \Model\CvManager();
    $expCv = $cvManager->getExpCv();
    $result = $adminManager->identity();
-   $view = new \Cv\View('deleteExpView');
+   $view = new \Folio\View('deleteExpView');
    $view->generer(['expCv' => $expCv,'result' => $result]);
     
 }
@@ -449,7 +449,7 @@ public function competences()
     $adminManager = new \Model\AdminManager();
    $cvManager = new \Model\CvManager();
    $avCv = $cvManager->getAvCv();
-   $view = new \Cv\View('competences');
+   $view = new \Folio\View('competences');
    $result = $adminManager->identity();
    $session = new \App\MessageFlash();
    $view->generer(['avCv' => $avCv,'result' => $result, 'session' => $session]);
@@ -460,7 +460,7 @@ public function ajoutComp()
 
   $adminManager = new \Model\AdminManager();
  $result = $adminManager->identity();
-   $view = new \Cv\View('ajoutCompView');
+   $view = new \Folio\View('ajoutCompView');
     $session = new \App\MessageFlash();
    $view->generer(['result' => $result,'session' => $session]);
     
@@ -503,7 +503,7 @@ public function deleteCompetences()
    $cvManager = new \Model\CvManager();
    $avCv = $cvManager->getAvCv();
    $result = $adminManager->identity();
-   $view = new \Cv\View('deleteCompView');
+   $view = new \Folio\View('deleteCompView');
    $view->generer(['avCv' => $avCv,'result'=> $result]);
    
 }
@@ -522,17 +522,17 @@ public function education()
    $cvManager = new \Model\CvManager();
    $edCv = $cvManager->getEdCv();
    $result = $adminManager->identity();
-   $view = new \Cv\View('education');
+   $view = new \Folio\View('education');
    $session = new \App\MessageFlash();
    $view->generer(['edCv' => $edCv,'result' => $result,'session' => $session]);
     
 }
 public function ajoutEduc()
   {
-    
+
   $adminManager = new \Model\AdminManager();
  $result = $adminManager->identity();
-   $view = new \Cv\View('ajoutEducView');
+   $view = new \Folio\View('ajoutEducView');
    $session = new \App\MessageFlash();
    $view->generer(['result' => $result,'session' =>$session]);
     
@@ -574,7 +574,7 @@ public function deleteEducation()
     $adminManager = new \Model\AdminManager();
    $cvManager = new \Model\CvManager();
    $edCv = $cvManager->getEdCv();
-   $view = new \Cv\View('deleteEducView');
+   $view = new \Folio\View('deleteEducView');
    $result = $adminManager->identity();
  $view->generer(['edCv' => $edCv,'result' => $result]);
     
@@ -592,21 +592,21 @@ public function deleteEduca($id)
 
 public function boardCv()
   {
- $view = new \Cv\View('boardCv');
+ $view = new \Folio\View('boardCv');
  $view->generer([]);    
 }
 
 public function boardPrincipal()
   {
     $session = new \App\MessageFlash();
- $view = new \Cv\View('interface');
+ $view = new \Folio\View('interface');
  $view->generer(['session' => $session]);    
 }
 
 
 public function connect(){ 
  $session = new \App\MessageFlash();
- $view = new \Cv\View('connectView'); 
+ $view = new \Folio\View('connectView'); 
  $view->generer(['session' => $session]);
 }
 

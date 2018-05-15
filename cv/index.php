@@ -1,7 +1,5 @@
 <?php
 
-//require "vendor/autoload.php";
-//require "app/Routeur.php";
 $loader = require 'vendor/autoload.php';
 $loader->addPsr4('Serri\App\\',__DIR__);
 

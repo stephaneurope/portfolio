@@ -1,9 +1,9 @@
 <?php
 namespace Controller;
-
-//require_once('app/MessageFlash.php');
-//require "view/frontend/view.php"; 
-require "vendor/autoload.php"; 
+  use Spipu\Html2Pdf\Html2Pdf;
+use Spipu\Html2Pdf\Exception\Html2PdfException;
+use Spipu\Html2Pdf\Exception\ExceptionFormatter;  
+//require "vendor/autoload.php"; 
 
 
 
@@ -16,7 +16,7 @@ class FrontendController{
     $result = $adminManager->identity();  
     $folioManager = new \Model\FolioManager();
     $portfolio = $folioManager->getFolio2(); 
-    $view = new \Cv\View('accueilView');
+    $view = new \Folio\View('accueilView');
     $view->generer(['portfolio' => $portfolio,'result'=> $result]);
     
 }
@@ -25,7 +25,7 @@ public function portfolio()
     $folioManager = new \Model\FolioManager();
     $portfolio = $folioManager->getFolio($_GET['id']); 
     $portfol = $folioManager->getFolio2(); 
-    $view = new \Cv\View('portfolioView');
+    $view = new \Folio\View('portfolioView');
     $view->generer(['portfolio'=>$portfolio,'portfol'=>$portfol]);
     
 }
@@ -43,7 +43,7 @@ public function cv()
     $expCv = $cvManager->getExpCv();
     $avCv = $cvManager->getAvCv();
     $edCv = $cvManager->getEdCv();
-    $view = new \Cv\View('cvView');
+    $view = new \Folio\View('cvView');
 
     $view->generer(['proCv' => $proCv,'expCv' => $expCv,'avCv' => $avCv,'edCv' => $edCv, 'result' => $result]);
     
@@ -53,15 +53,12 @@ public function cv()
 public function error()
 {
      
-    $view = new \Cv\View('errorView');
+    $view = new \Folio\View('errorView');
     $view->generer([]);
     
  
 }
  
-
-
-
 
 
 

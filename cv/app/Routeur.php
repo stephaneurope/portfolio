@@ -1,6 +1,7 @@
 <?php
 namespace  Stephan;
-
+//use Spipu\Html2Pdf\Html2Pdf;
+require "controller/PdfController.php";
 require "vendor/autoload.php";
 use Exception;
 
@@ -13,8 +14,9 @@ class Routeur {
     $ctrlAdmin = new \Controller\AdminController();
     $ctrlContact = new \Controller\ContactController();
     $ctrlInstagram = new \Controller\InstagramController();
+    $ctrlPdf = new \PdfController();
 
-    $tab_action = array("accueil","contact","portfolio","contactForm","cv",'profilPersonnel','experienceProfessionnel','competences','education','boardCv',"portfolioInsert","portfolioInsertAction","connect",'boardFolio','boardPrincipal','projectView','cleanProject','eraseProject','connexion','deconnexion','portfolioModifAction','portfolioModif','updateProfilPersonnel','updateExperienceProfessionnel','updateCompetence','updateEducation','ajoutExPro','cvInsertExpro','InsertComp','ajoutComp','ajoutEduc','cvInsertEduc','deleteExPro','deleteExp','deleteComp','deleteCompet','deleteEduc','deleteEduca','profil','updateProfil','updateProImg','instagram','imageFolio','imageModif');
+    $tab_action = array("accueil","contact","portfolio","contactForm","cv",'profilPersonnel','experienceProfessionnel','competences','education','boardCv',"portfolioInsert","portfolioInsertAction","connect",'boardFolio','boardPrincipal','projectView','cleanProject','eraseProject','connexion','deconnexion','portfolioModifAction','portfolioModif','updateProfilPersonnel','updateExperienceProfessionnel','updateCompetence','updateEducation','ajoutExPro','cvInsertExpro','InsertComp','ajoutComp','ajoutEduc','cvInsertEduc','deleteExPro','deleteExp','deleteComp','deleteCompet','deleteEduc','deleteEduca','profil','updateProfil','updateProImg','instagram','imageFolio','imageModif','pdf');
    
  
 
@@ -59,6 +61,12 @@ class Routeur {
      elseif ($_GET['action'] == 'cv'){
       session_start();
          $ctrlfrontend->cv();
+      }
+      /*********Affichage de la page CV en pdf**********/ 
+     elseif ($_GET['action'] == 'pdf'){
+      session_start();
+
+         $ctrlPdf->pdf();
       }
  /**********************************************/
  /*****************************************************/
@@ -279,13 +287,13 @@ elseif ($_GET['action'] == 'deleteEduc'){
 /****************Update******************/     
        /*********Update du profil professionnel**********/ 
      elseif ($_GET['action'] == 'updateProfilPersonnel'){
-         $ctrlBackend->updateProfilPersonnel($_POST['profil']);
+         $ctrlBackend->updateProfilPersonnel(ltrim($_POST['profil']));
       }
       
       /*********Update de l'experience professionnelle**********/ 
      elseif ($_GET['action'] == 'updateExperienceProfessionnel'){
       if (isset($_GET['id']) && $_GET['id'] > 0) {
-         $ctrlBackend->updateExperienceProfessionnel($_GET['id'],$_POST['title'],$_POST['period'],$_POST['description']);}
+         $ctrlBackend->updateExperienceProfessionnel($_GET['id'],(htmlspecialchars(ltrim($_POST['title']))),(htmlspecialchars(ltrim($_POST['period']))),(htmlspecialchars(ltrim($_POST['description']))));}
          else{
       throw new Exception('Désolé une erreur est survenue,votre demande n\'a pas pu aboutir');
     }
@@ -294,7 +302,7 @@ elseif ($_GET['action'] == 'deleteEduc'){
       /*********Update des competences**********/ 
      elseif ($_GET['action'] == 'updateCompetence'){
       if (isset($_GET['id']) && $_GET['id'] > 0) {
-         $ctrlBackend->updateCompetence($_GET['id'],$_POST['avantage']);
+         $ctrlBackend->updateCompetence($_GET['id'],(htmlspecialchars(ltrim($_POST['avantage']))));
          var_dump($_POST);}
          else{
       throw new Exception('Désolé une erreur est survenue,votre demande n\'a pas pu aboutir');
@@ -303,7 +311,7 @@ elseif ($_GET['action'] == 'deleteEduc'){
       /*********Update education**********/ 
      elseif ($_GET['action'] == 'updateEducation'){
       if (isset($_GET['id']) && $_GET['id'] > 0) {
-         $ctrlBackend->updateEducation($_GET['id'],$_POST['title_education'],$_POST['title_secondary'],$_POST['description_education']);}
+         $ctrlBackend->updateEducation($_GET['id'],(htmlspecialchars(ltrim($_POST['title_education']))),(htmlspecialchars(ltrim($_POST['title_secondary']))),(htmlspecialchars(ltrim($_POST['description_education']))));}
          else{
       throw new Exception('Désolé une erreur est survenue,votre demande n\'a pas pu aboutir');
     }
@@ -311,7 +319,7 @@ elseif ($_GET['action'] == 'deleteEduc'){
       /*********Modification de l'image du projet**********/ 
             elseif ($_GET['action'] == 'imageModif'){
          if (isset($_GET['id']) && $_GET['id'] > 0) {
-    $ctrlBackend->changeImage($_GET['id'],($_FILES['image']['name'])); 
+    $ctrlBackend->changeImage($_GET['id'],htmlspecialchars(ltrim(($_FILES['image']['name']))); 
     }else{
      throw new Exception('Désolé une erreur est survenue,votre demande n\'a pas pu aboutir!');
     }
@@ -322,7 +330,7 @@ elseif ($_GET['action'] == 'updateProfil'){
  
    session_start();
         if($_SESSION['id'] && $_SESSION['pseudo']){ 
-         $ctrlAdmin->updateProfil($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['mail'],$_POST['web'],$_POST['mobile'],$_POST['works']);
+         $ctrlAdmin->updateProfil((htmlspecialchars(ltrim($_POST['pseudo']))),(htmlspecialchars(ltrim($_POST['nom']))),(htmlspecialchars(ltrim($_POST['prenom']))),(htmlspecialchars(ltrim($_POST['mail']))),(htmlspecialchars(ltrim($_POST['web']))),(htmlspecialchars(ltrim($_POST['mobile']))),(htmlspecialchars(ltrim($_POST['works']))));
    
      }else{
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
@@ -333,7 +341,7 @@ elseif ($_GET['action'] == 'updateProfil'){
  
    session_start();
         if($_SESSION['id'] && $_SESSION['pseudo']){ 
-         $ctrlAdmin->updateProImg($_FILES['profil_image']['name']);
+         $ctrlAdmin->updateProImg(htmlspecialchars(ltrim($_FILES['profil_image']['name'])));
    
      } 
     } 
@@ -344,7 +352,7 @@ elseif ($_GET['action'] == 'updateProfil'){
 elseif ($_GET['action'] == 'portfolioModifAction') {
   if (isset($_GET['id']) && $_GET['id'] > 0) {
    
-     $ctrlBackend->portfolioModifAction($_GET['id'],$_POST['description'],$_POST['techno'],$_POST['comment'],$_POST['titre'], $_POST['liens']);
+     $ctrlBackend->portfolioModifAction($_GET['id'],htmlspecialchars(ltrim($_POST['description'])),htmlspecialchars(ltrim($_POST['techno'])),htmlspecialchars(ltrim($_POST['comment'])),htmlspecialchars(ltrim($_POST['titre'])),htmlspecialchars(ltrim( $_POST['liens'])));
 }else{
      throw new Exception('Désolé une erreur est survenue,votre demande n\'a pas pu aboutir!');
     }
@@ -355,20 +363,20 @@ elseif ($_GET['action'] == 'portfolioModifAction') {
       /*********insertion d'un nouveau projet**********/ 
 elseif ($_GET['action'] == 'portfolioInsertAction'){
   
-         $ctrlBackend->portfolioInsertAction(($_FILES['image']['name']),$_POST['description'],$_POST['techno'],$_POST['comment'],$_POST['titre'], $_POST['liens']);
+         $ctrlBackend->portfolioInsertAction(htmlspecialchars(ltrim(($_FILES['image']['name']))),htmlspecialchars(ltrim($_POST['description'])),htmlspecialchars(ltrim($_POST['techno'])),htmlspecialchars(ltrim($_POST['comment'])),htmlspecialchars(ltrim($_POST['titre'])), htmlspecialchars(ltrim($_POST['liens'])));
         
       }
      
       /*********insertion d'une nouvelle experience professionnelle**********/ 
 elseif ($_GET['action'] == 'cvInsertExpro'){
 
-         $ctrlBackend->insertExPro($_POST['title'],$_POST['period'],$_POST['description']);
+         $ctrlBackend->insertExPro(htmlspecialchars(ltrim($_POST['title'])),htmlspecialchars(ltrim($_POST['period'])),htmlspecialchars(ltrim($_POST['description'])));
          
       }
       /*********insertion d'une nouvelle competence**********/ 
 elseif ($_GET['action'] == 'InsertComp'){
  
-         $ctrlBackend->insertCompetence($_POST['avantage']);
+         $ctrlBackend->insertCompetence(htmlspecialchars(ltrim($_POST['avantage'])));
          
       }
 
