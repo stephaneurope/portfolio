@@ -17,7 +17,7 @@ class AdminController{
    $Session = new \App\MessageFlash();
    $Session->setFlash('Mauvais identifiant ou mot de Passe','');
    header('Location: index.php?action=connect');
-   exit;
+
  }
  else
  {
@@ -121,7 +121,7 @@ if(($isSuccess && $isImageUpdated && $isUploadSuccess)) {
 $adminManager = new \Model\AdminManager();
  $result = $adminManager->updateProfilImg($profil_img);
  header('location:index.php?action=profil');
- exit();
+
 } else {
   $adminManager = new \Model\AdminManager();
     $result = $adminManager->identity();  

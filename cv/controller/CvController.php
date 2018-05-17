@@ -31,7 +31,7 @@ public function updateProfilPersonnel($profil)
       $session = new \App\MessageFlash();
         $session->setFlash('Le profil Personnel à été modifié','');
         header('location:index.php?action=profilPersonnel');
-        exit;
+        
     }else{
         $session = new \App\MessageFlash();
         $session->setFlash('Tous les champs ne sont pas remplis','');

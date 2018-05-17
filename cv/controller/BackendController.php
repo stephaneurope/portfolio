@@ -17,7 +17,6 @@ class BackendController{
   public $image = "";
   public $liens = "";
   public $isSuccess = true;
-  public $wrong = "";
   public $imagePath      = '';
   public $imageExtension = '';
   public $isUploadSuccess = false;
@@ -189,7 +188,7 @@ $portfolio = new \Model\FolioManager();
  $result = $portfolio->updateImage($folioId,$image);
 
  header('location:index.php?action=imageFolio&id='. $folioId);
- exit();
+
 }else{
 
 
@@ -237,7 +236,7 @@ public function cleanProject($folioId){
        $folioManager = new \Model\FolioManager();
        $deleteLines = $folioManager->deleteProject($_GET['id']);
        header('Location: index.php?action=boardFolio');
-       exit;
+       
    }
 
 public function portfolioModif($folioId)
