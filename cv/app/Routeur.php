@@ -14,7 +14,7 @@ class Routeur {
     $ctrlContact = new \Controller\ContactController();
     $ctrlInstagram = new \Controller\InstagramController();
     $ctrlPdf = new  \Controller\PdfController();
-
+    $ctrlCv = new  \Controller\CvController();
     $tab_action = array("accueil","contact","portfolio","contactForm","cv",'profilPersonnel','experienceProfessionnel','competences','education','boardCv',"portfolioInsert","portfolioInsertAction","connect",'boardFolio','boardPrincipal','projectView','cleanProject','eraseProject','connexion','deconnexion','portfolioModifAction','portfolioModif','updateProfilPersonnel','updateExperienceProfessionnel','updateCompetence','updateEducation','ajoutExPro','cvInsertExpro','InsertComp','ajoutComp','ajoutEduc','cvInsertEduc','deleteExPro','deleteExp','deleteComp','deleteCompet','deleteEduc','deleteEduca','profil','updateProfil','updateProImg','instagram','imageFolio','imageModif','pdf');
    
  
@@ -149,7 +149,7 @@ elseif ($_GET['action'] == 'portfolioInsert'){
 elseif ($_GET['action'] == 'boardCv'){
    session_start();
         if($_SESSION){  
-         $ctrlBackend->boardCv();}else{
+         $ctrlCv->boardCv();}else{
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
     } 
          
@@ -159,7 +159,7 @@ elseif ($_GET['action'] == 'boardCv'){
      elseif ($_GET['action'] == 'profilPersonnel'){
       session_start();
         if($_SESSION){
-         $ctrlBackend->profilPersonnel();
+         $ctrlCv->profilPersonnel();
        }else{
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');
          
@@ -171,7 +171,7 @@ elseif ($_GET['action'] == 'boardCv'){
      elseif ($_GET['action'] == 'experienceProfessionnel'){
        session_start();
         if($_SESSION){
-         $ctrlBackend->experienceProfessionnel();}else{
+         $ctrlCv->experienceProfessionnel();}else{
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');
          
          
@@ -182,7 +182,7 @@ elseif ($_GET['action'] == 'boardCv'){
 elseif ($_GET['action'] == 'ajoutExPro'){
    session_start();
         if($_SESSION){  
-         $ctrlBackend->ajoutExPro();}else{
+         $ctrlCv->ajoutExPro();}else{
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
     } 
          
@@ -192,7 +192,7 @@ elseif ($_GET['action'] == 'ajoutExPro'){
 elseif ($_GET['action'] == 'deleteExp'){
     session_start();
         if($_SESSION){  
-         $ctrlBackend->deleteExp();}else{
+         $ctrlCv->deleteExp();}else{
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
     } 
          
@@ -202,7 +202,7 @@ elseif ($_GET['action'] == 'deleteExp'){
      elseif ($_GET['action'] == 'competences'){
       session_start();
         if($_SESSION){
-         $ctrlBackend->competences();}else{
+         $ctrlCv->competences();}else{
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');
          
          
@@ -213,7 +213,7 @@ elseif ($_GET['action'] == 'deleteExp'){
 elseif ($_GET['action'] == 'ajoutComp'){
    session_start();
         if($_SESSION){  
-         $ctrlBackend->ajoutComp();}else{
+         $ctrlCv->ajoutComp();}else{
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
     } 
          
@@ -223,7 +223,7 @@ elseif ($_GET['action'] == 'ajoutComp'){
 elseif ($_GET['action'] == 'deleteComp'){
    session_start();
         if($_SESSION){  
-         $ctrlBackend->deleteCompetences();
+         $ctrlCv->deleteCompetences();
          }else{
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
     } 
@@ -233,7 +233,7 @@ elseif ($_GET['action'] == 'deleteComp'){
      elseif ($_GET['action'] == 'education'){
      session_start();
         if($_SESSION){  
-         $ctrlBackend->education();}else{
+         $ctrlCv->education();}else{
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');
          
          
@@ -244,7 +244,7 @@ elseif ($_GET['action'] == 'deleteComp'){
 elseif ($_GET['action'] == 'ajoutEduc'){
    session_start();
         if($_SESSION){  
-         $ctrlBackend->ajoutEduc();}else{
+         $ctrlCv->ajoutEduc();}else{
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
     } 
          
@@ -254,7 +254,7 @@ elseif ($_GET['action'] == 'ajoutEduc'){
 
 elseif ($_GET['action'] == 'eraseProject'){
   if (isset($_GET['id']) && $_GET['id'] > 0) {
-$ctrlBackend->eraseProject($_GET['id']);
+$ctrlCv->eraseProject($_GET['id']);
 }else{
      throw new Exception('Désolé une erreur est survenue,votre demande n\'a pas pu aboutir');
     }
@@ -265,7 +265,7 @@ $ctrlBackend->eraseProject($_GET['id']);
 elseif ($_GET['action'] == 'deleteEduc'){
    session_start();
         if($_SESSION){  
-         $ctrlBackend->deleteEducation();}else{
+         $ctrlCv->deleteEducation();}else{
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
     } 
          
@@ -286,13 +286,13 @@ elseif ($_GET['action'] == 'deleteEduc'){
 /****************Update******************/     
        /*********Update du profil professionnel**********/ 
      elseif ($_GET['action'] == 'updateProfilPersonnel'){
-         $ctrlBackend->updateProfilPersonnel(ltrim($_POST['profil']));
+         $ctrlCv->updateProfilPersonnel(ltrim($_POST['profil']));
       }
       
       /*********Update de l'experience professionnelle**********/ 
      elseif ($_GET['action'] == 'updateExperienceProfessionnel'){
       if (isset($_GET['id']) && $_GET['id'] > 0) {
-         $ctrlBackend->updateExperienceProfessionnel($_GET['id'],(htmlspecialchars(ltrim($_POST['title']))),(htmlspecialchars(ltrim($_POST['period']))),(htmlspecialchars(ltrim($_POST['description']))));}
+         $ctrlCv->updateExperienceProfessionnel($_GET['id'],(htmlspecialchars(ltrim($_POST['title']))),(htmlspecialchars(ltrim($_POST['period']))),(htmlspecialchars(ltrim($_POST['description']))));}
          else{
       throw new Exception('Désolé une erreur est survenue,votre demande n\'a pas pu aboutir');
     }
@@ -301,7 +301,7 @@ elseif ($_GET['action'] == 'deleteEduc'){
       /*********Update des competences**********/ 
      elseif ($_GET['action'] == 'updateCompetence'){
       if (isset($_GET['id']) && $_GET['id'] > 0) {
-         $ctrlBackend->updateCompetence($_GET['id'],(htmlspecialchars(ltrim($_POST['avantage']))));
+         $ctrlCv->updateCompetence($_GET['id'],(htmlspecialchars(ltrim($_POST['avantage']))));
          }
          else{
       throw new Exception('Désolé une erreur est survenue,votre demande n\'a pas pu aboutir');
@@ -310,7 +310,7 @@ elseif ($_GET['action'] == 'deleteEduc'){
       /*********Update education**********/ 
      elseif ($_GET['action'] == 'updateEducation'){
       if (isset($_GET['id']) && $_GET['id'] > 0) {
-         $ctrlBackend->updateEducation($_GET['id'],(htmlspecialchars(ltrim($_POST['title']))),(htmlspecialchars(ltrim($_POST['year']))),(htmlspecialchars(ltrim($_POST['description']))));}
+         $ctrlCv->updateEducation($_GET['id'],(htmlspecialchars(ltrim($_POST['title']))),(htmlspecialchars(ltrim($_POST['year']))),(htmlspecialchars(ltrim($_POST['description']))));}
          else{
       throw new Exception('Désolé une erreur est survenue,votre demande n\'a pas pu aboutir');
     }
@@ -375,14 +375,14 @@ elseif ($_GET['action'] == 'cvInsertExpro'){
       /*********insertion d'une nouvelle competence**********/ 
 elseif ($_GET['action'] == 'InsertComp'){
  
-         $ctrlBackend->insertCompetence(htmlspecialchars(ltrim($_POST['avantage'])));
+         $ctrlCv->insertCompetence(htmlspecialchars(ltrim($_POST['avantage'])));
          
       }
 
       /*********insertion d'une nouvelle ecole**********/ 
 elseif ($_GET['action'] == 'cvInsertEduc'){
  
-         $ctrlBackend->inserEduc($_POST['title'],$_POST['year'],$_POST['description']);
+         $ctrlCv->inserEduc($_POST['title'],$_POST['year'],$_POST['description']);
 
       }
     /*************Supression***************************/
@@ -390,7 +390,7 @@ elseif ($_GET['action'] == 'cvInsertEduc'){
        /*********Supression de l'experience**********/ 
       elseif ($_GET['action'] == 'deleteExPro'){
         if (isset($_GET['id']) && $_GET['id'] > 0) {
-         $ctrlBackend->deleteExPro($_GET['id']);}
+        $ctrlCv->deleteExPro($_GET['id']);}
          else{
       throw new Exception('Désolé une erreur est survenue,votre demande n\'a pas pu aboutir');
     }
@@ -400,7 +400,7 @@ elseif ($_GET['action'] == 'cvInsertEduc'){
        /*********Supression des competences**********/ 
       elseif ($_GET['action'] == 'deleteCompet'){
         if (isset($_GET['id']) && $_GET['id'] > 0) {
-         $ctrlBackend->deleteCompet($_GET['id']);}
+        $ctrlCv->deleteCompet($_GET['id']);}
          else{
       throw new Exception('Désolé une erreur est survenue,votre demande n\'a pas pu aboutir');
     }
@@ -410,7 +410,7 @@ elseif ($_GET['action'] == 'cvInsertEduc'){
         /*********Supression de l'education**********/ 
       elseif ($_GET['action'] == 'deleteEduca'){
         if (isset($_GET['id']) && $_GET['id'] > 0) {
-         $ctrlBackend->deleteEduca($_GET['id']);}
+         $ctrlCv->deleteEduca($_GET['id']);}
          else{
       throw new Exception('Désolé une erreur est survenue,votre demande n\'a pas pu aboutir');
     }
