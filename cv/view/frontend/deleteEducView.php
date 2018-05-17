@@ -6,7 +6,7 @@
  <div id="top">
     <div id="cv" class="instaFade">
       <div class="mainDetails">
-            <div id="headshot" class="quickFade"> <img src="public/images/me2.jpg" alt="Alan Smith" /> </div>
+            <div id="headshot" class="quickFade"> <img src="public/images/me2.jpg" alt="Serri Stephan" /> </div>
             <div id="name">
                 <?php while ($data0 = $result->fetch()){  ?>
                 <h1 class="quickFade delayTwo"><?=$data0['nom'].' '.$data0['prenom'] ?></h1>
@@ -21,9 +21,12 @@
             </div>
             <div class="clear"></div>
         </div>
+      
         <div id="mainArea" class="quickFade delayFive">
             <section>
-               
+                 <div class="flashconnect">
+            <?php $session->flash();?>
+        </div>
                 <div class="sectionTitle">
                     <h1>Formation</h1> </div>
                 <?php while ($data3 = $edCv->fetch()){ ?>    
@@ -31,9 +34,9 @@
                     
                     <article>
                          <form action='index.php?action=deleteEduca&id=<?= $data3['id']?>' method="post">
-                        <h2><input name ='title_education' value="<?=$data3['title_education'];?>"/></h2>
-                        <p class="subDetails"><input name ='title_secondary' value="<?=$data3['title_secondary'];?>"/></p>
-                        <p><textarea name ='description_education'><?=$data3['description_education'];?></textarea></p>
+                        <h2><input name ='title' value="<?=$data3['title'];?>"/></h2>
+                        <p class="subDetails"><input name ='year' value="<?=$data3['year'];?>"/></p>
+                        <p><textarea name ='description'><?=$data3['description'];?></textarea></p>
                         <input href="" type="submit" class="btn btn-danger " value=" Suprimer">
                     </article>
                      

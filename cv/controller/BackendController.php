@@ -537,11 +537,11 @@ public function ajoutEduc()
    $view->generer(['result' => $result,'session' =>$session]);
     
 }
-public function updateEducation($edId,$title_education,$title_secondary,$description_education)
+public function updateEducation($edId,$title,$year,$description)
   {
-   if (!empty(htmlspecialchars(ltrim($_POST['title_education']))) && !empty(htmlspecialchars(ltrim($_POST['title_secondary']))) && !empty(htmlspecialchars(ltrim($_POST['description_education'])))) {
+   if (!empty(htmlspecialchars(ltrim($_POST['title']))) && !empty(htmlspecialchars(ltrim($_POST['year']))) && !empty(htmlspecialchars(ltrim($_POST['description'])))) {
    $cvManager = new \Model\CvManager();
-   $update = $cvManager->updateEdCv($edId,$title_education,$title_secondary,$description_education);
+   $update = $cvManager->updateEdCv($edId,$title,$year,$description);
   
   $session = new \App\MessageFlash();
         $session->setFlash('Votre parcours scolaire à été modifiée','');
@@ -554,21 +554,21 @@ public function updateEducation($edId,$title_education,$title_secondary,$descrip
         exit;
     }  
 }
-public function insertEducation($title_education , $title_secondary, $description_education)
+
+public function inserEduc($title,$year,$description)
   {
-    if (!empty(htmlspecialchars(ltrim($_POST['title_education']))) && !empty(htmlspecialchars(ltrim($_POST['title_secondary']))) && !empty(htmlspecialchars(ltrim($_POST['description_education'])))){
+     if (!empty(htmlspecialchars(ltrim($_POST['title']))) && !empty(htmlspecialchars(ltrim($_POST['year']))) && !empty(htmlspecialchars(ltrim($_POST['description'])))){
    $cvManager = new \Model\CvManager();
-   $affected = $cvManager->insertEdCv($title_education,$title_secondary,$description_education);
+   $reaffected = $cvManager->insertEdCv($title,$year,$description);
    $session = new \App\MessageFlash();
-   $session->setFlash('Votre parcours scolaire a bien été ajouté','');
+   $session->setFlash('Votre formation à bien été ajoutée','');
    header('location:index.php?action=education');}else{
           $Session = new \App\MessageFlash();
           $Session->setFlash('Vous n\'avez pas rempli tous les champs',''); 
           header('location:index.php?action=ajoutEduc');
           exit;
       }
-
-}
+    }
 public function deleteEducation()
   {
     $adminManager = new \Model\AdminManager();
@@ -576,7 +576,8 @@ public function deleteEducation()
    $edCv = $cvManager->getEdCv();
    $view = new \Folio\View('deleteEducView');
    $result = $adminManager->identity();
- $view->generer(['edCv' => $edCv,'result' => $result]);
+      $session = new \App\MessageFlash();
+ $view->generer(['edCv' => $edCv,'result' => $result, 'session' =>$session]);
     
 }
 
@@ -584,8 +585,10 @@ public function deleteEduca($id)
   {
    $cvManager = new \Model\CvManager();
    $affected = $cvManager->deleteEdCv($_GET['id']);
- 
-   header('location:index.php?action=education');
+   $session = new \App\MessageFlash();
+   $session->setFlash('Votre formation à bien été suprimée','');
+   header('location:index.php?action=deleteEduc');
+
     
 }
 

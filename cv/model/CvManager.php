@@ -31,7 +31,7 @@ $req->execute(array());
 }
 public function getEdCv(){
     $db = $this->dbConnect();
-    $req = $db->prepare('SELECT id,title_education,title_secondary,description_education  FROM  education');
+    $req = $db->prepare('SELECT id,title,year,description  FROM  education');
     	               
 $req->execute(array());
     return $req;
@@ -57,11 +57,11 @@ public function updateAvCv($avId,$avantage){
     $affected = $req->execute(array($avantage,$avId));
     return  $affected;
 }
-public function updateEdCv($edId,$title_education,$title_secondary,$description_education){
+public function updateEdCv($edId,$title,$year,$description){
     $db = $this->dbConnect();
-    $req = $db->prepare('UPDATE education   SET title_education = ?,title_secondary = ?,description_education = ? WHERE id = ?');
+    $req = $db->prepare('UPDATE education   SET title = ?,year = ?,description = ? WHERE id = ?');
                        
-$req->execute(array($title_education,$title_secondary,$description_education,$edId));
+$req->execute(array($title,$year,$description,$edId));
     return $req;
 }
 
@@ -74,16 +74,17 @@ public function insertExpCv($title,$period,$description){
 }
 public function insertAvCv($avantage){
     $db = $this->dbConnect();
-    $req = $db->prepare('INSERT INTO  competences (avantage) VALUES (?)');                
+    $req = $db->prepare('INSERT INTO  competences (avantage) VALUES (?)');   
     $affected = $req->execute(array($avantage));
     return  $affected;
 }
-public function insertEdCv($title_education,$title_secondary,$description_education){
-    $db = $this->dbConnect();
-    $req = $db->prepare('INSERT INTO education (​title_education,title_secondary,description_education)  VALUES (?,?,?)');
-    $affected = $req->execute(array($title_education,$title_secondary,$description_education));
-    return $affected;
+public function insertEdCv($title,$year,$description){
+   $db = $this->dbConnect();
+   $req = $db->prepare('INSERT INTO education(id,user_id,title , year, description) VALUES (NUll,1,?,?,?)');
+   $reaffected = $req->execute(array($title,$year,$description));
+   return $reaffected;
 }
+
 public function deleteExpCv($id){
     $db = $this->dbConnect();
     $req = $db->prepare('DELETE FROM experience_professionnel  WHERE id = ?');

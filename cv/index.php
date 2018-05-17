@@ -1,5 +1,5 @@
 <?php
-
+define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/'));
 $loader = require 'vendor/autoload.php';
 $loader->addPsr4('Serri\App\\',__DIR__);
 

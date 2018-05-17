@@ -1,0 +1,43 @@
+<style>
+table { 
+        width: 50%; 
+        color: black; 
+        font-family: helvetica; 
+        line-height: 5mm; 
+  
+
+    }
+ img{
+    	width:100px;
+    	border-radius:50%;
+    	
+    }
+    hr{
+color:#dedede;
+    }
+    td{
+    	padding:10px;
+    
+    }
+    td p {
+    	margin-bottom:10px;
+    }
+    tr{
+    	padding:10px;
+    }
+   .div1 {margin-right:50px;border-radius:50px; }
+   .div2 {width:500px; } 
+    .div3 {	list-style-type: none;margin-left: 50px; }  
+     .div4 { list-style-type: none;width:470px;font-family: helvetica;}
+     .div5 {list-style-type: none;width:500px} 
+     .div6 {list-style-type: none;width:200px;
+    float:left;} 
+     .titre{
+     	padding-right: 20px;
+     	width:150px;
+     }          
+    h2 { margin: 0; padding: 0;color:red;line-height: 10mm;  }
+    p { margin: 5px; }
+ 
+  </style>
+   

@@ -35,9 +35,9 @@
                     
                     <article>
                          <form action='index.php?action=updateEducation&id=<?= $data3['id']?>' method="post">
-                        <h2><input name ='title_education' value="<?=$data3['title_education'];?>"/></h2>
-                        <p class="subDetails"><input name ='title_secondary' value="<?=$data3['title_secondary'];?>"/></p>
-                        <p><textarea name ='description_education'><?=$data3['description_education'];?></textarea></p>
+                        <h2><input name ='title' value="<?=$data3['title'];?>"/></h2>
+                        <p class="subDetails"><input name ='year' value="<?=$data3['year'];?>"/></p>
+                        <p><textarea name ='description'><?=$data3['description'];?></textarea></p>
                         <input href="" type="submit" class="btn btn-success " value=" Modifier">
                     </article>
                      

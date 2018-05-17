@@ -70,9 +70,9 @@
                 <div class="sectionContent">
                     <?php while ($data3 = $edCv->fetch()){ ?>
                     <article>
-                        <h2><?=$data3['title_education'];?></h2>
-                        <p class="subDetails"><?=$data3['title_secondary'];?></p>
-                        <p><?=$data3['description_education'];?></p>
+                        <h2><?=$data3['title'];?></h2>
+                        <p class="subDetails"><?=$data3['year'];?></p>
+                        <p><?=$data3['description'];?></p>
                     </article>
                     <?php } ?>  
                 </div>

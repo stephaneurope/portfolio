@@ -33,20 +33,19 @@
              
                 <div class="sectionContent">
                     
-                    <article>
-                <form action="index.php?action=cvInsertEduc" method="post" enctype="multipart/form-data">
-                        <h2><input name ='title_education' placeholder="Titre" value=""/></h2>
-                        <p class="subDetails"><input placeholder="Titre secondaire" name ='title_secondary' value=""/></p>
-                        <textarea placeholder="Description" name ='description_education'></textarea>
-                        <br>
-                        <input type="submit" class="btn btn-success " value=" Ajouter">
-                        </form>
+                   <article>
+                        <form action='index.php?action=cvInsertEduc' method="post">
+                        <h2><input name="title" placeholder="Titre" value=""/></h2>
+                        <p class="subDetails"><input name="year" placeholder="Année" value=""/></p>
+                        <p><textarea name="description"></textarea></p>
+                        <div class="form-actions">
+                    <input href="" type="submit" class="btn btn-success " value=" Ajouter"></div>
                     </article>
                    
                 </div>
            
                 <div class="clear"></div>
-                
+                 </form>
 
                     <div class="form-actions">
                     <a class="btn btn-primary btn1" href="index.php?action=boardCv"><span class="glyphicon glyphicon-arrow-left"> Retour</span></a> </div>

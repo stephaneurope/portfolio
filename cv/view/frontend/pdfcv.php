@@ -1,5 +1,9 @@
+<link type="text/css" href="./public/css/pdf.css" rel="stylesheet" />
+<style type="text/css"></style>
+
 
 <?php
+
 require "vendor/autoload.php";
   
    $adminManager = new \Model\AdminManager();
@@ -11,51 +15,7 @@ require "vendor/autoload.php";
    $edCv = $cvManager->getEdCv();
 ?>
 
-<style type="text/css">
 
-    table { 
-        width: 50%; 
-        color: black; 
-        font-family: helvetica; 
-        line-height: 5mm; 
-  
-
-    }
- img{
-    	width:100px;
-    	border-radius:50%;
-    	
-    }
-    hr{
-color:#dedede;
-    }
-    td{
-    	padding:10px;
-    
-    }
-    td p {
-    	margin-bottom:10px;
-    }
-    tr{
-    	padding:10px;
-    }
-   .div1 {margin-right:50px;border-radius:50px; }
-   .div2 {width:500px; } 
-    .div3 {	list-style-type: none;margin-left: 50px; }  
-     .div4 { list-style-type: none;width:470px;font-family: helvetica;}
-     .div5 {list-style-type: none;width:500px} 
-     .div6 {list-style-type: none;width:200px;
-    float:left;} 
-     .titre{
-     	padding-right: 20px;
-     	width:150px;
-     }          
-    h2 { margin: 0; padding: 0;color:red;line-height: 10mm;  }
-    p { margin: 5px; }
- 
-  
-   
-</style>
 
 
 <page backtop="10mm" backleft="05mm" backright="05mm" backbottom="10mm">
@@ -135,9 +95,9 @@ color:#dedede;
                     <td>
                     	<ul class="div5">
                     		<?php while ($data3 = $edCv->fetch()){ ?>
-                      <li>  <h3><?=$data3['title_education'];?></h3></li>
-                        <li><?=$data3['title_secondary'];?></li>
-                       <li><?=$data3['description_education'];?></li>
+                      <li>  <h3><?=$data3['title'];?></h3></li>
+                        <li><?=$data3['year'];?></li>
+                       <li><?=$data3['description'];?></li>
                        <?php } ?>
                        </ul>
                     </td>
