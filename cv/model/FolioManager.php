@@ -16,7 +16,7 @@ public function getFolio($folioId){
 public function getFolio2(){
     $db = $this->dbConnect();
     $req = $db->prepare('SELECT id, image, description,techno,comment, titre, liens  FROM  portfolio');
-   $portfolio=$req->execute(array());
+   $req->execute(array());
     return $req;
 }
 public function insertfolio($image, $description, $techno, $comment, $titre,$liens){

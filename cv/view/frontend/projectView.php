@@ -29,7 +29,7 @@
           <h3 class="my-3">Technologies Utilisées</h3>
           <?= $portfolio['techno'] ?> <br>
           <?= $portfolio['comment'] ?>
-        </div>
+         <br>
 
  
       </div>

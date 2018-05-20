@@ -14,7 +14,7 @@
           <img class="rounded mx-auto img-thumbnail img-responsive"  src='/cv/public/images/<?= $portfolio['image'] ?>' alt="">
         </div>
         <div class="col-md-6">
-        <form class="form" role="form" action="index.php?action=imageModif&id=<?php echo $portfolio['id'] ;?>" method="post" enctype="multipart/form-data">
+        <form class="form" role="form" action="index.php?action=imageModif&id=<?= $portfolio['id'] ;?>" method="post" enctype="multipart/form-data">
 <div class="form-group">
                         <label for="image">Sélectionner une image:</label>
                         <input type="file" id="image" name="image">

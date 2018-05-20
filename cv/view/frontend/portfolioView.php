@@ -29,6 +29,9 @@
           <h3 class="my-3">Technologies Utilisées</h3>
           <?= $portfolio['techno'] ?> <br>
           <?= $portfolio['comment'] ?>
+          <br>
+           <a target='blank' href="<?= $portfolio['liens'] ?>"><button type ='btn' class= "btn btn-danger">Accès au site</button></a>
+        </div>
         </div>
 
  
@@ -57,7 +60,7 @@
                
                 <div class="carousel-inner" role="listbox">
                   <div class="item active">
-                        <a class="thumbnail" href="" target="_blank"> <img src="/cv/public/images/portfolio.jpeg" class="img-responsive " > </a></div>
+                        <a class="thumbnail" href="" target="_blank"> <img src="/cv/public/images/portfolio1.jpeg" class="img-responsive " > </a></div>
                     
              
                      <?php while ($data = $portfol->fetch())

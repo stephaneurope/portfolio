@@ -1,4 +1,5 @@
- <?php  include "menu.php" ?>
+<?php include "menu.php" ?>
+<section>
         <div class="all">
             <div class="container admin">
                 <br><br>
@@ -30,3 +31,4 @@
                 </div>
                 <a href="index.php?action=boardPrincipal" class="btn btn-primary  pad"><span class="glyphicon glyphicon-arrow-left">  Retour</a>
             </div>
+            </section>

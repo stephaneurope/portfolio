@@ -64,9 +64,9 @@ public function ajoutExPro()
 public function updateExperienceProfessionnel($expId,$title,$period,$description)
   {
     if (!empty(htmlspecialchars(ltrim($_POST['title']))) && !empty(htmlspecialchars(ltrim($_POST['period']))) && !empty(htmlspecialchars(ltrim($_POST['description'])))) {
-    $adminManager = new \Model\AdminManager();
+    
    $cvManager = new \Model\CvManager();
-   $req = $cvManager->updateExpCv($expId,$title,$period,$description);
+   $cvManager->updateExpCv($expId,$title,$period,$description);
    $session = new \App\MessageFlash();
         $session->setFlash('Votre expérience professionnelle à été modifiée','');
        header('location:index.php?action=experienceProfessionnel');
@@ -83,7 +83,7 @@ public function insertExPro($title,$period,$description)
   {
      if (!empty(htmlspecialchars(ltrim($_POST['title']))) && !empty(htmlspecialchars(ltrim($_POST['period']))) && !empty(htmlspecialchars(ltrim($_POST['description'])))){
    $cvManager = new \Model\CvManager();
-   $affected = $cvManager->insertExpCv($title,$period,$description);
+   $cvManager->insertExpCv($title,$period,$description);
    $session = new \App\MessageFlash();
    $session->setFlash('Votre expérience professionnelle a bien été ajoutée','');
    header('location:index.php?action=experienceProfessionnel');}else{
@@ -138,7 +138,7 @@ public function updateCompetence($avId,$avantage)
   {
     if (!empty(htmlspecialchars(ltrim($_POST['avantage'])))) {
    $cvManager = new \Model\CvManager();
-   $affected = $cvManager->updateAvCv($avId,$avantage);
+   $cvManager->updateAvCv($avId,$avantage);
    
 $session = new \App\MessageFlash();
         $session->setFlash('Vos compétences ont été modifiées','');
@@ -179,7 +179,7 @@ public function deleteCompetences()
 public function deleteCompet($id)
   {
    $cvManager = new \Model\CvManager();
-   $affected = $cvManager->deleteAvCv($_GET['id']);
+   $cvManager->deleteAvCv($_GET['id']);
  
    header('location:index.php?action=competences');
     
@@ -210,7 +210,7 @@ public function updateEducation($edId,$title,$year,$description)
   {
    if (!empty(htmlspecialchars(ltrim($_POST['title']))) && !empty(htmlspecialchars(ltrim($_POST['year']))) && !empty(htmlspecialchars(ltrim($_POST['description'])))) {
    $cvManager = new \Model\CvManager();
-   $update = $cvManager->updateEdCv($edId,$title,$year,$description);
+   $cvManager->updateEdCv($edId,$title,$year,$description);
   
   $session = new \App\MessageFlash();
         $session->setFlash('Votre parcours scolaire à été modifiée','');
@@ -228,7 +228,7 @@ public function inserEduc($title,$year,$description)
   {
      if (!empty(htmlspecialchars(ltrim($_POST['title']))) && !empty(htmlspecialchars(ltrim($_POST['year']))) && !empty(htmlspecialchars(ltrim($_POST['description'])))){
    $cvManager = new \Model\CvManager();
-   $reaffected = $cvManager->insertEdCv($title,$year,$description);
+  $cvManager->insertEdCv($title,$year,$description);
    $session = new \App\MessageFlash();
    $session->setFlash('Votre formation à bien été ajoutée','');
    header('location:index.php?action=education');}else{
@@ -253,7 +253,7 @@ public function deleteEducation()
 public function deleteEduca($id)
   {
    $cvManager = new \Model\CvManager();
-   $affected = $cvManager->deleteEdCv($_GET['id']);
+   $cvManager->deleteEdCv($_GET['id']);
    $session = new \App\MessageFlash();
    $session->setFlash('Votre formation à bien été suprimée','');
    header('location:index.php?action=deleteEduc');

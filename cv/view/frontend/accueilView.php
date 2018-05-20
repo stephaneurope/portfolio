@@ -144,7 +144,7 @@
                
                 <div class="carousel-inner" role="listbox">
                   <div class="item active">
-                        <a class="thumbnail" href="" target=""> <img src="/cv/public/images/portfolio.jpeg" class="img-responsive" > </a></div>
+                        <a class="thumbnail" href="" target=""> <img src="/cv/public/images/portfolio1.jpeg" class="img-responsive" > </a></div>
                     
              
                      <?php while ($data = $portfolio->fetch())

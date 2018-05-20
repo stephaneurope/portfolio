@@ -6,13 +6,7 @@
 
 require "vendor/autoload.php";
   
-   $adminManager = new \Model\AdminManager();
-    $cvManager = new \Model\CvManager();
-   $result = $adminManager->identity();  
-    $proCv = $cvManager->getProCv();
-    $expCv = $cvManager->getExpCv();
-    $avCv = $cvManager->getAvCv();
-   $edCv = $cvManager->getEdCv();
+   
 ?>
 
 

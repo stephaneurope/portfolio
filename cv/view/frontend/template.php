@@ -33,6 +33,9 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Pacifico|Permanent+Marker" rel="stylesheet">
+     <!--[if IE]>
+      <link rel="stylesheet" type="text/css" href="public/css/ie.css"/>
+      <![endif]-->
     <script src="https://code.jquery.com/jquery-1.12.3.js" integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc=" crossorigin="anonymous"></script>
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=i9qtcs3a3bdsajmuw9vustqee9f5wd2z1pnc8mpv2bjzzzn0
 "></script>
@@ -41,6 +44,10 @@
 <script src="public/js/ajax.js"></script>
 <script src="public/js/instagram.js"></script>
 <script src="public/langs/fr_FR.js"></script>
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+   
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+
     <script>
         tinymce.init({
             selector: "textarea"
@@ -63,13 +70,18 @@
  <div class='page'>  
  <div class="site-content">
             <?= $content ?>
-        </div>
-</div>
+   </div>
 
-       <footer class="text-center container-fluid site-footer ">
+</div>  
+  
+       <footer class="site-footer text-center
+        container-fluid">
+
         <a href="#about"> <span class="glyphicon glyphicon-chevron-up"></span>  </a><br>
      <?php if (!$_SESSION) { ?>   <a href="index.php?action=connect" style='color:#fff;'>connexion</a><?php } else { ?><a href="index.php?action=deconnexion" style='color:#fff;'>déconnexion</a><br><a href="index.php?action=boardPrincipal" style='color:#fff;'>administration</a> <?php } ?>
         <h5>© 2018 SERRI-STEPHAN.COM</h5></footer>
+
+
 </body>
 
 </html>

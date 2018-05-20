@@ -14,6 +14,7 @@ class BackendController{
   public $description = "";
   public $techno = "";
   public $comment = "";
+  public $wrong = "";
   public $image = "";
   public $liens = "";
   public $isSuccess = true;
@@ -37,7 +38,7 @@ public function portfolioInsertAction($image, $description, $techno, $comment, $
 {
     $this->titre           = htmlspecialchars(ltrim(($_POST['titre'])));
     $this->description     = htmlspecialchars(ltrim(($_POST['description'])));
-    $this->techno          = htmlspecialchars(ltrim(($_POST['techno'])));
+    $this->techno          = (ltrim(($_POST['techno'])));
     $this->comment         = htmlspecialchars(ltrim(($_POST['comment'])));
     $this->liens           = htmlspecialchars(ltrim(($_POST['liens'])));
     $this->image           = htmlspecialchars(ltrim(($_FILES['image']['name'])));
@@ -109,7 +110,7 @@ if(empty($this->titre)){
     }    
        if($this->isSuccess && $this->isUploadSuccess) {
     $folioManager = new \Model\FolioManager();
-    $portfolio = $folioManager->insertfolio($image, $description, $techno, $comment, $titre, $liens);
+    $folioManager->insertfolio($image, $description, $techno, $comment, $titre, $liens);
     header('location:index.php?action=boardFolio');
     exit();
 } else {
@@ -185,7 +186,7 @@ public function changeImage($folioId, $image){
     } 
 if(($this->isImageUpdated && $this->isUploadSuccess)) {
 $portfolio = new \Model\FolioManager();
- $result = $portfolio->updateImage($folioId,$image);
+$portfolio->updateImage($folioId,$image);
 
  header('location:index.php?action=imageFolio&id='. $folioId);
 
@@ -234,7 +235,7 @@ public function cleanProject($folioId){
 
  public function eraseProject($folioId){
        $folioManager = new \Model\FolioManager();
-       $deleteLines = $folioManager->deleteProject($_GET['id']);
+       $folioManager->deleteProject($_GET['id']);
        header('Location: index.php?action=boardFolio');
        
    }
@@ -256,7 +257,7 @@ session_start();
 {
     $this->titre           = htmlspecialchars(ltrim(($_POST['titre'])));
     $this->description     = htmlspecialchars(ltrim(($_POST['description'])));
-    $this->techno          = htmlspecialchars(ltrim(($_POST['techno'])));
+    $this->techno          = (ltrim(($_POST['techno'])));
     $this->comment         = htmlspecialchars(ltrim(($_POST['comment'])));
     $this->liens           = htmlspecialchars(ltrim(($_POST['liens'])));
     $this->isSuccess       = true;
@@ -289,7 +290,7 @@ if(empty($this->titre)){
        
     $folioManager = new \Model\FolioManager();
       $portfolio = $folioManager->getFolio($_GET['id']); 
-    $reaffected = $folioManager->updateProject($folioId,$description, $techno, $comment, $titre, $liens);
+    $folioManager->updateProject($folioId,$description, $techno, $comment, $titre, $liens);
     $view = new \Folio\View('portfolioModif');
     header('location:index.php?action=boardFolio');
         $view->generer(

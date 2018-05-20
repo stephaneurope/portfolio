@@ -24,7 +24,7 @@ class AdminController{
   if ($isPasswordCorrect) {
     
    if (!empty($_POST['pseudo']) && !empty($_POST['pass'])){
-    
+
     $Session = new \App\MessageFlash();
     $_SESSION['id'] = $resultat['id'];
     $_SESSION['pseudo'] = $pseudo;
@@ -70,7 +70,7 @@ $imageError = '';
 public function updateProfil($pseudo, $nom, $prenom,$mail, $web, $mobile, $works) {
   if (!empty(htmlspecialchars(ltrim($_POST['pseudo']))) && !empty(htmlspecialchars(ltrim($_POST['nom']))) && !empty(htmlspecialchars(ltrim($_POST['prenom']))) && !empty(htmlspecialchars(ltrim($_POST['mail']))) && !empty(htmlspecialchars(ltrim($_POST['web']))) && !empty(htmlspecialchars(ltrim($_POST['mobile'])))&& !empty(htmlspecialchars(ltrim($_POST['works'])))){
 $adminManager = new \Model\AdminManager();
-$reaffected = $adminManager->updateIdentity($pseudo, $nom, $prenom,$mail, $web, $mobile,$works); 
+$adminManager->updateIdentity($pseudo, $nom, $prenom,$mail, $web, $mobile,$works); 
 $session = new \App\MessageFlash();
    $session->setFlash('Votre profil a été modifié','');
    header('location:index.php?action=profil');}else{

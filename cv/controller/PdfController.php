@@ -12,6 +12,13 @@ class PdfController{
 
     try {
     ob_start();
+    $adminManager = new \Model\AdminManager();
+    $cvManager = new \Model\CvManager();
+   $result = $adminManager->identity();  
+    $proCv = $cvManager->getProCv();
+    $expCv = $cvManager->getExpCv();
+    $avCv = $cvManager->getAvCv();
+   $edCv = $cvManager->getEdCv();
     require APPLICATION_PATH.'/view/frontend/pdfcv.php';
 
     $content = ob_get_clean();
