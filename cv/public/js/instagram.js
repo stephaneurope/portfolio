@@ -5,7 +5,7 @@ var instagram = {
     ajaxGet(instagram.urlInsta, function (reponse) {
 
     var insta = JSON.parse(reponse);
-    console.log(insta);
+ 
 
   var insta = insta['data'];
   for (var i = 0; i < insta.length; i++) {

@@ -71,13 +71,12 @@ public function updateExperienceProfessionnel($expId,$title,$period,$description
         $session->setFlash('Votre expérience professionnelle à été modifiée','');
        header('location:index.php?action=experienceProfessionnel');
         exit;
-    }else{
+        return;
+    }
       $session = new \App\MessageFlash();
         $session->setFlash('Tous les champs ne sont pas remplis','');
         header('location:index.php?action=experienceProfessionnel');
-        exit;
-    }
-    
+        exit;    
 }
 public function insertExPro($title,$period,$description)
   {

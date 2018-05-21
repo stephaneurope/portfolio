@@ -77,9 +77,10 @@ elseif ($_GET['action'] == 'boardPrincipal'){
           session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){ 
 
-         $ctrlBackend->boardPrincipal();}else{
+         $ctrlBackend->boardPrincipal();
+         return;}
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
-    } 
+    
          
       }
 /*********affichage du boarFolio**********/ 
@@ -106,10 +107,10 @@ elseif ($_GET['action'] == 'boardFolio'){
    session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){ 
          $ctrlBackend->portfolioModif($_GET['id']);
-        
-      }else{
+        return;
+      }
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
-    }    
+        
       }
 
 /*********Affichage de la page de modif de l'image du portfolio**********/ 
@@ -140,11 +141,11 @@ elseif ($_GET['action'] == 'boardFolio'){
 elseif ($_GET['action'] == 'portfolioInsert'){
   session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
-         $ctrlBackend->portfolioInsert(); }else{
+         $ctrlBackend->portfolioInsert(); 
+        return;
+       }
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');
-         
-         
-    } 
+          
       }
 /*********affichage du boarCv**********/ 
 elseif ($_GET['action'] == 'boardCv'){
@@ -183,20 +184,20 @@ elseif ($_GET['action'] == 'boardCv'){
 elseif ($_GET['action'] == 'ajoutExPro'){
    session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){  
-         $ctrlCv->ajoutExPro();}else{
-         throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
-    } 
-         
+         $ctrlCv->ajoutExPro();
+         return;
+       }
+         throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');          
       }
 
       /*********affichage de la supression de l'experience**********/ 
 elseif ($_GET['action'] == 'deleteExp'){
     session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){  
-         $ctrlCv->deleteExp();}else{
-         throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
-    } 
-         
+         $ctrlCv->deleteExp();
+          return;
+       }
+         throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');         
       }
 
        /*********Affichage de la page de modif des compétences**********/ 
@@ -266,9 +267,11 @@ $ctrlBackend->eraseProject($_GET['id']);
 elseif ($_GET['action'] == 'deleteEduc'){
    session_start();
         if($_SESSION){  
-         $ctrlCv->deleteEducation();}else{
+         $ctrlCv->deleteEducation();
+         return;
+       }
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
-    } 
+     
          
       }
 /*********affichage du profil**********/ 
