@@ -85,23 +85,23 @@ public function insertEdCv($title,$year,$description){
    return $reaffected;
 }
 
-public function deleteExpCv($id){
+public function deleteExpCv($ExpId){
     $db = $this->dbConnect();
     $req = $db->prepare('DELETE FROM experience_professionnel  WHERE id = ?');
                        
- $affected = $req->execute(array($id));
+ $affected = $req->execute(array($ExpId));
     return $affected;
 }
-public function deleteAvCv($id){
+public function deleteAvCv($AvId){
     $db = $this->dbConnect();
     $req = $db->prepare('DELETE FROM  competences WHERE id = ?');                
-    $affected = $req->execute(array($id));
+    $affected = $req->execute(array($AvId));
     return  $affected;
 }
-public function deleteEdCv($id){
+public function deleteEdCv($EdId){
     $db = $this->dbConnect();
     $req = $db->prepare('DELETE FROM  education WHERE id = ?');
-    $affected = $req->execute(array($id));
+    $affected = $req->execute(array($EdId));
     return $affected;
 }
 

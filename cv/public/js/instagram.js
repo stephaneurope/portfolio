@@ -7,7 +7,7 @@ var instagram = {
     var insta = JSON.parse(reponse);
  
 
-  var insta = insta['data'];
+  var insta = insta["data"];
   for (var i = 0; i < insta.length; i++) {
        
 

@@ -12,7 +12,6 @@ class BackendController{
   public $description = "";
   public $techno = "";
   public $comment = "";
-  public $wrong = "";
   public $image = "";
   public $liens = "";
   public $isSuccess = true;
@@ -281,7 +280,7 @@ public function portfolioModif($folioId)
     $folioManager = new \Model\FolioManager();
     $portfolio = $folioManager->getFolio($_GET['id']); 
     $view = new \Folio\View('backend/projects/portfolioModif');
-    $view->generer(['titreError'=>$this->titreError, 'descriptionError'=>$this->descriptionError, 'technoError'=>$this->technoError, 'commentError'=>$this->commentError,'liensError'=>$this->liensError,'titre'=>$this->titre,'description'=>$this->description,'techno'=>$this->techno,'comment'=>$this->comment,'liens'=>$this->liens,'isSuccess'=>$this->isSuccess, 'wrong'=>$this->wrong,'portfolio'=>$portfolio]);
+    $view->generer(['titreError'=>$this->titreError, 'descriptionError'=>$this->descriptionError, 'technoError'=>$this->technoError, 'commentError'=>$this->commentError,'liensError'=>$this->liensError,'titre'=>$this->titre,'description'=>$this->description,'techno'=>$this->techno,'comment'=>$this->comment,'liens'=>$this->liens,'isSuccess'=>$this->isSuccess,'portfolio'=>$portfolio]);
       return;
   }
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
@@ -345,7 +344,6 @@ if(empty($this->titre)){
             'comment'=>$this->comment,
             'liens'=>$this->liens,
             'isSuccess'=>$this->isSuccess,
-            'wrong'=>$this->wrong,
             'portfolio'=>$portfolio
         ]
     );  
@@ -369,7 +367,6 @@ $this->$wrong = 'Désolé une erreur est survenu,veuillez recommencer';
             'comment'=>$this->comment,
             'liens'=>$this->liens,
             'isSuccess'=>$this->isSuccess,
-            'wrong'=>$this->wrong,
             'portfolio'=>$portfolio
 
         ]

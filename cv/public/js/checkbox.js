@@ -1,5 +1,5 @@
 $(document).ready(function(){
-$('.chkbx').click(function(){
+$(".chkbx").click(function(){
     var text="";
     $(".chkbx:checked").each(function(){
         text+=$(this).val()+ " ";
