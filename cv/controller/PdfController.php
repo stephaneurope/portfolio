@@ -14,7 +14,7 @@ class PdfController{
     ob_start();
     $adminManager = new \Model\AdminManager();
     $cvManager = new \Model\CvManager();
-   $result = $adminManager->identity();  
+   $adminManager->identity();  
     $proCv = $cvManager->getProCv();
     $expCv = $cvManager->getExpCv();
     $avCv = $cvManager->getAvCv();

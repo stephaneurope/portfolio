@@ -27,7 +27,7 @@ public function updateProfilPersonnel($profil)
   {
     if (!empty(htmlspecialchars(ltrim($_POST['profil'])))) {
    $cvManager = new \Model\CvManager();
-   $affected = $cvManager->updateProCv($profil);
+   $cvManager->updateProCv($profil);
       $session = new \App\MessageFlash();
         $session->setFlash('Le profil Personnel à été modifié','');
         header('location:index.php?action=profilPersonnel');
@@ -104,10 +104,10 @@ public function deleteExp()
    $view->generer(['expCv' => $expCv,'result' => $result]);
     
 }
-public function deleteExPro($id)
+public function deleteExPro()
   {
    $cvManager = new \Model\CvManager();
-   $affected = $cvManager->deleteExpCv($_GET['id']);
+   $cvManager->deleteExpCv($_GET['id']);
  
    header('location:index.php?action=experienceProfessionnel');
     
@@ -155,7 +155,7 @@ public function insertCompetence($avantage)
   {
      if (!empty(htmlspecialchars(ltrim($_POST['avantage'])))){
    $cvManager = new \Model\CvManager();
-   $affected = $cvManager->insertAvCv($avantage);
+   $cvManager->insertAvCv($avantage);
    $session = new \App\MessageFlash();
    $session->setFlash('Votre competence a bien été ajouté','');
    header('location:index.php?action=competences');}else{
@@ -176,7 +176,7 @@ public function deleteCompetences()
    $view->generer(['avCv' => $avCv,'result'=> $result]);
    
 }
-public function deleteCompet($id)
+public function deleteCompet()
   {
    $cvManager = new \Model\CvManager();
    $cvManager->deleteAvCv($_GET['id']);
@@ -250,7 +250,7 @@ public function deleteEducation()
     
 }
 
-public function deleteEduca($id)
+public function deleteEduca()
   {
    $cvManager = new \Model\CvManager();
    $cvManager->deleteEdCv($_GET['id']);
