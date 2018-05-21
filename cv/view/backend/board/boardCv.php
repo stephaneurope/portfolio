@@ -1,6 +1,5 @@
-<?php  include "menu.php" ?>
-
-        <div>
+<?php include APPLICATION_PATH.'/view/frontend/menu.php'?>
+<div>
             <div class="container admin">
                
                 <div class="row">

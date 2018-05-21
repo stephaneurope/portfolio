@@ -1,5 +1,6 @@
 <?php
 namespace Controller;
+use Exception;
 use Spipu\Html2Pdf\Html2Pdf;
 use Spipu\Html2Pdf\Exception\Html2PdfException;
 use Spipu\Html2Pdf\Exception\ExceptionFormatter;
@@ -8,17 +9,16 @@ require "vendor/autoload.php";
 class PdfController{
   
      public function pdf()
-{
-
+{  
     try {
     ob_start();
     $adminManager = new \Model\AdminManager();
     $cvManager = new \Model\CvManager();
-   $adminManager->identity();  
+    $result = $adminManager->identity();  
     $proCv = $cvManager->getProCv();
     $expCv = $cvManager->getExpCv();
     $avCv = $cvManager->getAvCv();
-   $edCv = $cvManager->getEdCv();
+    $edCv = $cvManager->getEdCv();
     require APPLICATION_PATH.'/view/frontend/pdfcv.php';
 
     $content = ob_get_clean();

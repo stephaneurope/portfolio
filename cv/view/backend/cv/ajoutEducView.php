@@ -1,11 +1,11 @@
 <?php 
-    
+
     $this->title = 'serri stephan' ;
- include "menu.php" ;?>
+ include APPLICATION_PATH.'/view/frontend/menu.php' ;?>
     
  <div id="top">
     <div id="cv" class="instaFade">
-    <div class="mainDetails">
+        <div class="mainDetails">
           <?php while ($data0 = $result->fetch()){  ?>  
             <div id="headshot" class="img_profil quickFade"> <img src="public/images/<?=$data0['profil_img']?>"  alt="Serri Stephan" /> </div>
             <div id="name">
@@ -22,34 +22,36 @@
             </div>
             <div class="clear"></div>
         </div>
-         <div class="flashconnect">
+        <div class="flashconnect">
             <?php $session->flash();?>
         </div>
         <div id="mainArea" class="quickFade delayFive">
-             <section>
-                
+            <section>
+               
                 <div class="sectionTitle">
-                    <h1>Experience Professionelle</h1> </div>
-                    <?php while ($data1 = $expCv->fetch()){ ?>
+                    <h1>Formation</h1> </div>
+             
                 <div class="sectionContent">
-                     
-                    <article>
-                        <form action='index.php?action=updateExperienceProfessionnel&id=<?= $data1['id']?>' method="post">
-                        <h2><input name="title" value="<?=$data1['title'];?>"/></h2>
-                        <p class="subDetails"><input name="period" value="<?=$data1['period'];?>"/></p>
-                        <p><textarea name="description"><?=$data1['description'];?></textarea></p>
-                         <input href="" type="submit" class="btn btn-success " value=" Modifier">
+                    
+                   <article>
+                        <form action='index.php?action=cvInsertEduc' method="post">
+                        <h2><input name="title" placeholder="Titre" value=""/></h2>
+                        <p class="subDetails"><input name="year" placeholder="Année" value=""/></p>
+                        <p><textarea name="description"></textarea></p>
+                        <div class="form-actions">
+                    <input href="" type="submit" class="btn btn-success " value=" Ajouter"></div>
                     </article>
                    
                 </div>
            
                 <div class="clear"></div>
+                 </form>
+
                     <div class="form-actions">
-                   </div>
+                    <a class="btn btn-primary btn1" href="index.php?action=boardCv"><span class="glyphicon glyphicon-arrow-left"> Retour</span></a> </div>
                 
-            </form>
-<?php }  ?>
-            <a class="btn btn-primary btn0" href="index.php?action=boardCv"><span class="glyphicon glyphicon-arrow-left"> Retour</span></a> 
+           
+         
             </section>
             
         

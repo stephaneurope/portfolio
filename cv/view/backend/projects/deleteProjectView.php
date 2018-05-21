@@ -1,4 +1,4 @@
-<?php  include "menu.php" ?>
+<?php  include APPLICATION_PATH.'/view/frontend/menu.php' ?>
 <br><br><br>
 <div class="container delete">
     <div class="row">

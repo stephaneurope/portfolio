@@ -1,11 +1,11 @@
 <?php 
-
+   
     $this->title = 'serri stephan' ;
- include "menu.php" ;?>
+ include APPLICATION_PATH.'/view/frontend/menu.php' ;?>
     
  <div id="top">
     <div id="cv" class="instaFade">
-        <div class="mainDetails">
+       <div class="mainDetails">
           <?php while ($data0 = $result->fetch()){  ?>  
             <div id="headshot" class="img_profil quickFade"> <img src="public/images/<?=$data0['profil_img']?>"  alt="Serri Stephan" /> </div>
             <div id="name">
@@ -26,32 +26,28 @@
             <?php $session->flash();?>
         </div>
         <div id="mainArea" class="quickFade delayFive">
-            <section>
-               
+              <section>
+                
                 <div class="sectionTitle">
-                    <h1>Formation</h1> </div>
-             
+                    <h1>Compétences</h1> </div>
+                  
                 <div class="sectionContent">
-                    
-                   <article>
-                        <form action='index.php?action=cvInsertEduc' method="post">
-                        <h2><input name="title" placeholder="Titre" value=""/></h2>
-                        <p class="subDetails"><input name="year" placeholder="Année" value=""/></p>
-                        <p><textarea name="description"></textarea></p>
-                        <div class="form-actions">
-                    <input href="" type="submit" class="btn btn-success " value=" Ajouter"></div>
-                    </article>
-                   
+                    <ul class="keySkills">
+                        
+                        <form action="index.php?action=InsertComp" method="post" enctype="multipart/form-data">
+                        <li><input name='avantage' placeholder="Avantage" value=""/></li>
+                        
+                    </ul>
+                    <div class="form-actions">
+                    <input href="" type="submit" class="btn btn-success " value=" Ajouter"> </div>
                 </div>
            
                 <div class="clear"></div>
-                 </form>
-
-                    <div class="form-actions">
-                    <a class="btn btn-primary btn1" href="index.php?action=boardCv"><span class="glyphicon glyphicon-arrow-left"> Retour</span></a> </div>
+                    
                 
-           
-         
+            </form>
+        
+            <a class="btn btn-primary btn1" href="index.php?action=boardCv"><span class="glyphicon glyphicon-arrow-left"> Retour</span></a>
             </section>
             
         

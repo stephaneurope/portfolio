@@ -1,10 +1,11 @@
 <?php 
+    
     $this->title = 'serri stephan' ;
- include "menu.php" ;?>
+ include APPLICATION_PATH.'/view/frontend/menu.php' ;?>
     
  <div id="top">
     <div id="cv" class="instaFade">
-   <div class="mainDetails">
+    <div class="mainDetails">
           <?php while ($data0 = $result->fetch()){  ?>  
             <div id="headshot" class="img_profil quickFade"> <img src="public/images/<?=$data0['profil_img']?>"  alt="Serri Stephan" /> </div>
             <div id="name">
@@ -21,29 +22,34 @@
             </div>
             <div class="clear"></div>
         </div>
-        <div class="flashconnect">
+         <div class="flashconnect">
             <?php $session->flash();?>
         </div>
         <div id="mainArea" class="quickFade delayFive">
-            <section>
-            	<form action='index.php?action=updateProfilPersonnel' method="post">
-                <article>  
-                    <div class="sectionTitle">
-                        <h1> Profil Personnel</h1> </div>
-                    <div class="sectionContent">
-                        <textarea name="profil"><?php while ($data = $proCv->fetch()){  
-                echo $data['profil'];} ?></textarea>
-<br>
-                <input href="" type="submit" class="btn btn-success " value=" Modifier">
-                             </div>
-
-                </article>
-
+             <section>
+                
+                <div class="sectionTitle">
+                    <h1>Experience Professionelle</h1> </div>
+                    <?php while ($data1 = $expCv->fetch()){ ?>
+                <div class="sectionContent">
+                     
+                    <article>
+                        <form action='index.php?action=updateExperienceProfessionnel&id=<?= $data1['id']?>' method="post">
+                        <h2><input name="title" value="<?=$data1['title'];?>"/></h2>
+                        <p class="subDetails"><input name="period" value="<?=$data1['period'];?>"/></p>
+                        <p><textarea name="description"><?=$data1['description'];?></textarea></p>
+                         <input href="" type="submit" class="btn btn-success " value=" Modifier">
+                    </article>
+                   
+                </div>
+           
                 <div class="clear"></div>
                     <div class="form-actions">
-                    <a class="btn btn-primary btn1" href="index.php?action=boardCv"><span class="glyphicon glyphicon-arrow-left"> Retour</span></a> </div>
+                   </div>
                 
             </form>
+<?php }  ?>
+            <a class="btn btn-primary btn0" href="index.php?action=boardCv"><span class="glyphicon glyphicon-arrow-left"> Retour</span></a> 
             </section>
             
         

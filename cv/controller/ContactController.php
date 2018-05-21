@@ -1,6 +1,6 @@
 <?php
 namespace Controller;
-//require "vendor/autoload.php"; 
+use Exception;
 require"view/frontend/View.php";
 class ContactController{
 
@@ -17,14 +17,13 @@ class ContactController{
      
 public function contact()
   {
-
-     
-       $view = new \Folio\View('contactView');
+       session_start();  
+       $view = new \Folio\View('frontend/contactView');
        $view->generer(['firstnameError'=>$this->firstnameError, 'nameError'=>$this->nameError,'phoneError'=>$this->phoneError, 'mailError'=>$this->mailError,'messageError'=>$this->messageError, 'message1' =>$this->message1]);
     
 }
 public function contactForm() {
-
+      session_start();  
      $firstname = $name = $this->email = $this->phone = $message = "";
      $this->firstnameError = $this->nameError = $this->mailError = $this->phoneError = $this->messageError = "";
      $isSuccess = false;
@@ -107,7 +106,7 @@ public function contactForm() {
         
    } 
 
-   $view = new \Folio\View('contactView');
+   $view = new \Folio\View('frontend/contactView');
        $view->generer(['firstnameError'=>$this->firstnameError, 'nameError'=>$this->nameError,'phoneError'=>$this->phoneError, 'mailError'=>$this->mailError,'messageError'=>$this->messageError,'message1' =>$this->message1]);
 
 }

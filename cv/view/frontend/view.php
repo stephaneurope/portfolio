@@ -10,7 +10,7 @@ class View {
 
    public function __construct($action) {
     // Détermination du nom du fichier vue à partir de l'action
-    $this->fichier = "view/frontend/". $action . ".php";
+    $this->fichier = "view/". $action . ".php";
   }
     
 
@@ -25,19 +25,7 @@ class View {
     // Renvoi de la vue au navigateur
     echo $view;
   }
-  // Génère et affiche la vue
-  public function genererpdf($donnees) {
-    // Génération de la partie spécifique de la vue
-    $content = $this->genererFichier($this->fichier, $donnees);
-    // Génération du gabarit commun utilisant la partie spécifique
-    $view = $this->genererFichier('',
-      array('title' => $this->title, 'content' => $content));
-     
-    // Renvoi de la vue au navigateur
-    echo $view;
-  }
-   
-
+ 
   // Génère un fichier vue et renvoie le résultat produit
   private function genererFichier($fichier, $donnees) {
     if (file_exists($fichier)) {

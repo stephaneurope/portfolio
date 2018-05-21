@@ -1,9 +1,7 @@
 <?php 
 
     $this->title = 'serri stephan' ;
-    include "menu.php" ;
-
-    ?>
+    include  APPLICATION_PATH.'/view/frontend/menu.php';   ?>
 <!-- Page Content -->
 
 <section>

@@ -1,7 +1,7 @@
 <?php 
    
     $this->title = 'serri stephan' ;
- include "menu.php" ;?>
+ include APPLICATION_PATH.'/view/frontend/menu.php' ;?>
     
  <div id="top">
     <div id="cv" class="instaFade">
@@ -20,38 +20,36 @@
                 </ul>
                 <?php } ?>
             </div>
-           
-    
             <div class="clear"></div>
         </div>
-       <div class="flashconnect">
+        <div class="flashconnect">
             <?php $session->flash();?>
         </div>
         <div id="mainArea" class="quickFade delayFive">
-             <section>
-                
+            <section>
+               
                 <div class="sectionTitle">
-                    <h1>Experience Professionelle</h1> </div>
-                    
+                    <h1>Formation</h1> </div>
+                <?php while ($data3 = $edCv->fetch()){ ?>    
                 <div class="sectionContent">
-                     
+                    
                     <article>
-                        <form action='index.php?action=cvInsertExpro' method="post">
-                        <h2><input name="title" placeholder="Titre" value=""/></h2>
-                        <p class="subDetails"><input name="period" placeholder="Période" value=""/></p>
-                        <p><textarea name="description"></textarea></p>
-                        <div class="form-actions">
-                    <input href="" type="submit" class="btn btn-success " value=" Ajouter"></div>
+                         <form action='index.php?action=updateEducation&id=<?= $data3['id']?>' method="post">
+                        <h2><input name ='title' value="<?=$data3['title'];?>"/></h2>
+                        <p class="subDetails"><input name ='year' value="<?=$data3['year'];?>"/></p>
+                        <p><textarea name ='description'><?=$data3['description'];?></textarea></p>
+                        <input href="" type="submit" class="btn btn-success " value=" Modifier">
                     </article>
-                   
+                     
                 </div>
            
                 <div class="clear"></div>
                     
+                    
                 
             </form>
-
-            <a class="btn btn-primary btn1" href="index.php?action=boardCv"><span class="glyphicon glyphicon-arrow-left"> Retour</span></a> 
+             <?php } ?>
+             <a class="btn btn-primary btn2" href="index.php?action=boardCv"><span class="glyphicon glyphicon-arrow-left"> Retour</span></a> </div>
             </section>
             
         

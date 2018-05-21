@@ -1,14 +1,14 @@
 <?php
 namespace Controller;
+use Exception;
 
-//require "vendor/autoload.php";
  
 class InstagramController{
   
 public function instagramView()
   {
-
-    $view = new \Folio\View('instagram');
+    session_start();  
+    $view = new \Folio\View('frontend/instagram');
     $view->generer([]);
     
 }

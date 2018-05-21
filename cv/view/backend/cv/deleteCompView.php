@@ -1,11 +1,11 @@
 <?php 
-
+  
     $this->title = 'serri stephan' ;
- include "menu.php" ;?>
+ include APPLICATION_PATH.'/view/frontend/menu.php' ;?>
     
  <div id="top">
     <div id="cv" class="instaFade">
-    <div class="mainDetails">
+   <div class="mainDetails">
             <div id="headshot" class="quickFade"> <img src="public/images/me2.jpg" alt="Alan Smith" /> </div>
             <div id="name">
                 <?php while ($data0 = $result->fetch()){  ?>
@@ -21,31 +21,27 @@
             </div>
             <div class="clear"></div>
         </div>
+          
         <div id="mainArea" class="quickFade delayFive">
-             <section>
+              <section>
                 
                 <div class="sectionTitle">
-                    <h1>Experience Professionelle</h1> </div>
-                    <?php while ($data1 = $expCv->fetch()){ ?>
+                    <h1>Compétences</h1> </div>
+                    <?php while ($data2 = $avCv->fetch()){ ?>
                 <div class="sectionContent">
-                     
-                    <article>
-                        <form action='index.php?action=deleteExPro&id=<?= $data1['id']?>' method="post">
-                        <h2><input name="title" value="<?=$data1['title'];?>"/></h2>
-                        <p class="subDetails"><input name="period" value="<?=$data1['period'];?>"/></p>
-                        <p><textarea name="description"><?=$data1['description'];?></textarea></p>
-                        <input href="" type="submit" class="btn btn-danger " value=" suprimer">
-                    </article>
-                   
-                </div>
-           
-                <div class="clear"></div>
+                    <ul class="keySkills">
+                        
+                        <form action="index.php?action=deleteCompet&id=<?=$data2['id']?>" method="post" enctype="multipart/form-data">
+                        <li><input name='avantage' value="<?=$data2['avantage'];?>"/></li>
+                               <input href="" type="submit" class="btn btn-danger " value=" Suprimer"> </div>
+                    </ul>
                     
+                <div class="clear"></div>
                     
                 
             </form>
-<?php }  ?>
-            <a class="btn btn-primary btn1" href="index.php?action=boardCv"><span class="glyphicon glyphicon-arrow-left"> Retour</span></a> 
+            <?php } ?>
+            <a class="btn btn-primary btn1" href="index.php?action=boardCv"><span class="glyphicon glyphicon-arrow-left"> Retour</span></a>
             </section>
             
         

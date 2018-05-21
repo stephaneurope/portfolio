@@ -1,8 +1,6 @@
 <?php
 namespace Controller;
-
-//require "vendor/autoload.php";
- 
+use Exception;
 class AdminController{
   
  public function connexion($pseudo,$pass) {
@@ -55,19 +53,27 @@ public function deleteSession() {
   // Suppression des cookies de connexion automatique
  setcookie('login', '');
  setcookie('pass', '');
- header('Location: index.php');
+ header('Location: index.php?action=accueil');
  exit;
 }
 public function profil(){
+  session_start();
+        if($_SESSION['id'] && $_SESSION['pseudo']){ 
 $adminManager = new \Model\AdminManager();
     $result = $adminManager->identity();  
-$view = new \Folio\View('profil');
+$view = new \Folio\View('backend/profil');
 $session = new \App\MessageFlash();
 $imageError = '';
    $view->generer(['result' => $result,'session' => $session,'imageError'=>$imageError]);
+return;
+    }
+         throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
+ 
 }
 
 public function updateProfil($pseudo, $nom, $prenom,$mail, $web, $mobile, $works) {
+  session_start();
+        if($_SESSION['id'] && $_SESSION['pseudo']){ 
   if (!empty(htmlspecialchars(ltrim($_POST['pseudo']))) && !empty(htmlspecialchars(ltrim($_POST['nom']))) && !empty(htmlspecialchars(ltrim($_POST['prenom']))) && !empty(htmlspecialchars(ltrim($_POST['mail']))) && !empty(htmlspecialchars(ltrim($_POST['web']))) && !empty(htmlspecialchars(ltrim($_POST['mobile'])))&& !empty(htmlspecialchars(ltrim($_POST['works'])))){
 $adminManager = new \Model\AdminManager();
 $adminManager->updateIdentity($pseudo, $nom, $prenom,$mail, $web, $mobile,$works); 
@@ -79,6 +85,10 @@ $session = new \App\MessageFlash();
           header('location:index.php?action=profil');
           exit;
       }
+
+     }else{
+         throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
+    }
 }
 public function updateProImg($profil_img){
     $image           = (htmlspecialchars(ltrim(($_FILES['profil_image']['name']))));
@@ -89,6 +99,8 @@ public function updateProImg($profil_img){
     $isImageUpdated = true;
     $imageError = '';
 
+session_start();
+        if($_SESSION['id'] && $_SESSION['pseudo']){
        if(empty($image)){
         $isImageUpdated = false;
         $imageError = "Vous n'avez sélectionné aucun fichiers!"; 
@@ -125,7 +137,7 @@ return;
 } 
   $adminManager = new \Model\AdminManager();
     $result = $adminManager->identity();  
-    $view = new \Folio\View('profil');
+    $view = new \Folio\View('backend/profil');
     $session = new \App\MessageFlash();
     $view->generer(
         [
@@ -137,7 +149,7 @@ return;
         ]
     );
 
-
+}
 }
 
 }
