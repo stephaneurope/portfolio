@@ -79,13 +79,13 @@ $adminManager = new \Model\AdminManager();
 $adminManager->updateIdentity($pseudo, $nom, $prenom,$mail, $web, $mobile,$works); 
 $session = new \App\MessageFlash();
    $session->setFlash('Votre profil a été modifié','');
-   header('location:index.php?action=profil');}else{
-          $Session = new \App\MessageFlash();
+   header('location:index.php?action=profil');
+return;
+ }   $Session = new \App\MessageFlash();
           $Session->setFlash('Vous n\'avez pas rempli tous les champs',''); 
           header('location:index.php?action=profil');
           exit;
-      }
-
+     
      }else{
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
     }

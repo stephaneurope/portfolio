@@ -36,13 +36,13 @@ public function updateProfilPersonnel($profil)
       $session = new \App\MessageFlash();
         $session->setFlash('Le profil Personnel à été modifié','');
         header('location:index.php?action=profilPersonnel');
-        
-    }else{
+        return;
+    }
         $session = new \App\MessageFlash();
         $session->setFlash('Tous les champs ne sont pas remplis','');
         header('location:index.php?action=profilPersonnel');
         exit;
-    }   
+       
 }
 public function experienceProfessionnel()
   {
@@ -103,12 +103,13 @@ public function insertExPro($title,$period,$description)
    $cvManager->insertExpCv($title,$period,$description);
    $session = new \App\MessageFlash();
    $session->setFlash('Votre expérience professionnelle a bien été ajoutée','');
-   header('location:index.php?action=experienceProfessionnel');}else{
-          $Session = new \App\MessageFlash();
+   header('location:index.php?action=experienceProfessionnel');
+return;
+ }       $Session = new \App\MessageFlash();
           $Session->setFlash('Vous n\'avez pas rempli tous les champs',''); 
           header('location:index.php?action=experienceProfessionnel');
           exit;
-      }
+      
     
 }
 public function deleteExp()

@@ -116,7 +116,8 @@ if(empty($this->titre)){
     $folioManager->insertfolio($image, $description, $techno, $comment, $titre, $liens);
     header('location:index.php?action=boardFolio');
     exit();
-} else {
+    return;
+}
     $view = new \Folio\View('backend/projects/portfolioInsert');
     $view->generer(
         [
@@ -135,7 +136,7 @@ if(empty($this->titre)){
             'isSuccess'=>$this->isSuccess
         ]
     );
-}
+
     
  }  
 
