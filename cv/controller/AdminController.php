@@ -121,8 +121,8 @@ if(($isSuccess && $isImageUpdated && $isUploadSuccess)) {
 $adminManager = new \Model\AdminManager();
  $result = $adminManager->updateProfilImg($profil_img);
  header('location:index.php?action=profil');
-
-} else {
+return;
+} 
   $adminManager = new \Model\AdminManager();
     $result = $adminManager->identity();  
     $view = new \Folio\View('profil');
@@ -136,7 +136,7 @@ $adminManager = new \Model\AdminManager();
             'isSuccess'=>$isSuccess
         ]
     );
-}
+
 
 }
 

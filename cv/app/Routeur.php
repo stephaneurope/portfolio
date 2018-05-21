@@ -151,9 +151,11 @@ elseif ($_GET['action'] == 'portfolioInsert'){
 elseif ($_GET['action'] == 'boardCv'){
    session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){  
-         $ctrlCv->boardCv();}else{
+         $ctrlCv->boardCv();
+         return;
+       }
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
-    } 
+     
          
       }
 
@@ -162,11 +164,9 @@ elseif ($_GET['action'] == 'boardCv'){
       session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
          $ctrlCv->profilPersonnel();
-       }else{
+         return;
+       }
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');
-         
-         
-    }
       }
 
 /*********Affichage de la page de modif de l'experience professionnel**********/ 
@@ -204,10 +204,10 @@ elseif ($_GET['action'] == 'deleteExp'){
      elseif ($_GET['action'] == 'competences'){
       session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
-         $ctrlCv->competences();}else{
-         throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');
-         
-         
+         $ctrlCv->competences();
+         return;
+       }
+         throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');    
     }
       }
    
@@ -215,10 +215,10 @@ elseif ($_GET['action'] == 'deleteExp'){
 elseif ($_GET['action'] == 'ajoutComp'){
    session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){  
-         $ctrlCv->ajoutComp();}else{
-         throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
-    } 
-         
+         $ctrlCv->ajoutComp();
+        return;
+        }
+         throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');          
       }
 
  /*********affichage de la supression des competences**********/ 
@@ -235,21 +235,20 @@ elseif ($_GET['action'] == 'deleteComp'){
      elseif ($_GET['action'] == 'education'){
      session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){  
-         $ctrlCv->education();}else{
+         $ctrlCv->education();
+         return;
+       }
          throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');
-         
-         
-    }
       }
 
   /*********affichage de l'ajout d'ecole'**********/ 
 elseif ($_GET['action'] == 'ajoutEduc'){
    session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){  
-         $ctrlCv->ajoutEduc();}else{
-         throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
-    } 
-         
+         $ctrlCv->ajoutEduc();
+         return;
+         }
+         throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');          
       }     
      
 
@@ -296,10 +295,12 @@ elseif ($_GET['action'] == 'deleteEduc'){
       /*********Update de l'experience professionnelle**********/ 
      elseif ($_GET['action'] == 'updateExperienceProfessionnel'){
       if (isset($_GET['id']) && $_GET['id'] > 0) {
-         $ctrlCv->updateExperienceProfessionnel($_GET['id'],(htmlspecialchars(ltrim($_POST['title']))),(htmlspecialchars(ltrim($_POST['period']))),(htmlspecialchars(ltrim($_POST['description']))));}
-         else{
+         $ctrlCv->updateExperienceProfessionnel($_GET['id'],(htmlspecialchars(ltrim($_POST['title']))),(htmlspecialchars(ltrim($_POST['period']))),(htmlspecialchars(ltrim($_POST['description']))));
+         return;
+       }
+        
       throw new Exception('Désolé une erreur est survenue,votre demande n\'a pas pu aboutir');
-    }
+    
 
       }
       /*********Update des competences**********/ 
