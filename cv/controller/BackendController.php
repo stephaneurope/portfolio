@@ -20,10 +20,9 @@ class BackendController{
   public $isUploadSuccess = false;
   public $isImageUpdated = false;
 
-
    public function portfolioInsert()
 {
-  session_start();
+ $start = session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
     $view = new \Folio\View('backend/projects/portfolioInsert');
     $view->generer(['titreError'=>$this->titreError, 'descriptionError'=>$this->descriptionError, 'technoError'=>$this->technoError, 'commentError'=>$this->commentError,'imageError'=>$this->imageError,'liensError'=>$this->liensError,'titre'=>$this->titre,'description'=>$this->description,'techno'=>$this->techno,'comment'=>$this->comment,'image'=>$this->image,'liens'=>$this->liens,'isSuccess'=>$this->isSuccess]); 
@@ -33,7 +32,7 @@ return;
   }
 public function portfolioInsertAction($image, $description, $techno, $comment, $titre,$liens)
 {
- session_start();
+ $start = session_start();
     
 
   if(!empty($_POST))
@@ -107,7 +106,6 @@ if(empty($this->titre)){
             $this->imageError = "Il y a eu une erreur lors de l'upload";
             $this->isUploadSuccess = false;
             }
-
       }  
     }    
        if($this->isSuccess && $this->isUploadSuccess) {
@@ -134,17 +132,14 @@ if(empty($this->titre)){
             'liens'=>$this->liens,
             'isSuccess'=>$this->isSuccess
         ]
-    );
-
-    
+    );   
  }  
-
 
 }
 
 public function imageFolio()
 {
-  session_start();
+  $start = session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
   $folioManager = new \Model\FolioManager();
   $portfolio = $folioManager->getFolio($_GET['id']); 
@@ -215,7 +210,7 @@ $folioManager = new \Model\FolioManager();
 
 public function projectView()
   {
-    session_start();
+    $start = session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
     $folioManager = new \Model\FolioManager();
     $portfolio = $folioManager->getFolio($_GET['id']); 
@@ -258,7 +253,7 @@ return;
 
 public function portfolioModif($folioId)
 {
-  session_start();
+  $start = session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){ 
     $folioManager = new \Model\FolioManager();
     $portfolio = $folioManager->getFolio($_GET['id']); 
@@ -272,7 +267,7 @@ public function portfolioModif($folioId)
 
      public function portfolioModifAction($folioId,$description, $techno, $comment, $titre,$liens)
     {    
-session_start();
+$start = session_start();
 if (isset($_GET['id']) && $_GET['id'] > 0) {
   if(!empty($_POST))
 {

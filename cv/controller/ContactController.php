@@ -17,13 +17,13 @@ class ContactController{
      
 public function contact()
   {
-       session_start();  
+       $start = session_start(); 
        $view = new \Folio\View('frontend/contactView');
        $view->generer(['firstnameError'=>$this->firstnameError, 'nameError'=>$this->nameError,'phoneError'=>$this->phoneError, 'mailError'=>$this->mailError,'messageError'=>$this->messageError, 'message1' =>$this->message1]);
     
 }
 public function contactForm() {
-      session_start();  
+     $start = session_start();  
      $firstname = $name = $this->email = $this->phone = $message = "";
      $this->firstnameError = $this->nameError = $this->mailError = $this->phoneError = $this->messageError = "";
      $isSuccess = false;

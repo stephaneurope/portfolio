@@ -7,7 +7,7 @@ class InstagramController{
   
 public function instagramView()
   {
-    session_start();  
+    $start = session_start();  
     $view = new \Folio\View('frontend/instagram');
     $view->generer([]);
     

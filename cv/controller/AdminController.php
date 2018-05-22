@@ -44,7 +44,7 @@ else {
 }
 
 public function deleteSession() {
- session_start();
+ $start = session_start();
 
   // Suppression des variables de session et de la session
  $_SESSION = array();
@@ -57,7 +57,7 @@ public function deleteSession() {
  exit;
 }
 public function profil(){
-  session_start();
+  $start = session_start();
         if($_SESSION['id'] && $_SESSION['pseudo']){ 
 $adminManager = new \Model\AdminManager();
     $result = $adminManager->identity();  
@@ -72,7 +72,7 @@ return;
 }
 
 public function updateProfil($pseudo, $nom, $prenom,$mail, $web, $mobile, $works) {
-  session_start();
+  $start = session_start();
         if($_SESSION['id'] && $_SESSION['pseudo']){ 
   if (!empty(htmlspecialchars(ltrim($_POST['pseudo']))) && !empty(htmlspecialchars(ltrim($_POST['nom']))) && !empty(htmlspecialchars(ltrim($_POST['prenom']))) && !empty(htmlspecialchars(ltrim($_POST['mail']))) && !empty(htmlspecialchars(ltrim($_POST['web']))) && !empty(htmlspecialchars(ltrim($_POST['mobile'])))&& !empty(htmlspecialchars(ltrim($_POST['works'])))){
 $adminManager = new \Model\AdminManager();
@@ -99,7 +99,7 @@ public function updateProImg($profil_img){
     $isImageUpdated = true;
     $imageError = '';
 
-session_start();
+$start = session_start();
         if($_SESSION['id'] && $_SESSION['pseudo']){
        if(empty($image)){
         $isImageUpdated = false;

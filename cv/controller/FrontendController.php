@@ -5,9 +5,6 @@ use Exception;
 use Spipu\Html2Pdf\Exception\Html2PdfException;
 use Spipu\Html2Pdf\Exception\ExceptionFormatter;  
 
-
-
-
 class FrontendController{
 
   
@@ -23,7 +20,7 @@ class FrontendController{
 }
 public function portfolio()
   {
-    session_start();  
+    $start = session_start();  
     $folioManager = new \Model\FolioManager();
     $portfolio = $folioManager->getFolio($_GET['id']); 
     $portfol = $folioManager->getFolio2(); 
@@ -37,7 +34,7 @@ public function portfolio()
 
 public function cv()
   {
-    session_start();  
+    $start = session_start();  
     $adminManager = new \Model\AdminManager();
     $cvManager = new \Model\CvManager();
     $result = $adminManager->identity();  
