@@ -213,23 +213,6 @@ $folioManager = new \Model\FolioManager();
      
 }
 
-
-
-public function boardFolio()
-{
-  session_start();
-        if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){ 
-    $folioManager = new \Model\FolioManager();
-    $portfolio = $folioManager->getFolio2(); 
-    $view = new \Folio\View('backend/board/boardFolio');
-    $view->generer(['portfolio' => $portfolio]);
-    return;
-  }
-         throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
-    
-}
-
-
 public function projectView()
   {
     session_start();
@@ -351,7 +334,6 @@ if(empty($this->titre)){
 }else{
   $folioManager = new \Model\FolioManager(); 
 $portfolio = $folioManager->getFolio($_GET['id']); 
-$this->$wrong = 'Désolé une erreur est survenu,veuillez recommencer';
       $view = new \Folio\View('backend/projects/portfolioModif');
 
         $view->generer(
@@ -378,22 +360,6 @@ $this->$wrong = 'Désolé une erreur est survenu,veuillez recommencer';
      throw new Exception('Désolé une erreur est survenue,votre demande n\'a pas pu aboutir!');
     }
 }
-
-
-public function boardPrincipal()
-  {
-    session_start();
-    if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){ 
-    $session = new \App\MessageFlash();
-    $view = new \Folio\View('backend/board/interface');
-    $view->generer(['session' => $session]);  
-    return;
-    }
-         throw new Exception('L\' accès à été refusé <br> Vous n êtes pas autorisé à consulter cette page <br> HTTP ERROR 403');      
-     
-
-}
-
 
 
 

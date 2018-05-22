@@ -1,18 +1,18 @@
 <?php
 namespace Controller;
 use Exception;
-require"view/frontend/View.php";
+//require"view/frontend/View.php";
 class ContactController{
 
 
     public $email;
     public $phone;
     public $data;
-    public  $firstnameError = '';
+    public $firstnameError = '';
     public $nameError =  '';
-     public $phoneError =  '';
-    public  $mailError =  '';
-    public  $messageError = '' ;
+    public $phoneError =  '';
+    public $mailError =  '';
+    public $messageError = '' ;
     public $message1 = '';
      
 public function contact()
@@ -101,8 +101,7 @@ public function contactForm() {
              $firstname = $name = $email = $phone = $message = "";
              $this->message1 = 'Votre message a bien été envoyé!! Merci!';
         }
-        
-        //echo json_encode($array);
+
         
    } 
 

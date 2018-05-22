@@ -1,6 +1,5 @@
 <?php
 namespace  Stephan;
-require "controller/PdfController.php";
 require "vendor/autoload.php";
 use Exception;
 class Routeur {
@@ -12,6 +11,7 @@ class Routeur {
     $ctrlInstagram = new \Controller\InstagramController();
     $ctrlPdf = new  \Controller\PdfController();
     $ctrlCv = new  \Controller\CvController();
+    $ctrlBoard = new  \Controller\BoardController();
     $tab_action = array("accueil","contact","portfolio","contactForm","cv",'profilPersonnel','experienceProfessionnel','competences','education','boardCv',"portfolioInsert","portfolioInsertAction","connect",'boardFolio','boardPrincipal','projectView','cleanProject','eraseProject','connexion','deconnexion','portfolioModifAction','portfolioModif','updateProfilPersonnel','updateExperienceProfessionnel','updateCompetence','updateEducation','ajoutExPro','cvInsertExpro','InsertComp','ajoutComp','ajoutEduc','cvInsertEduc','deleteExPro','deleteExp','deleteComp','deleteCompet','deleteEduc','deleteEduca','profil','updateProfil','updateProImg','instagram','imageFolio','imageModif','pdf');
    
  
@@ -55,17 +55,17 @@ class Routeur {
      elseif ($_GET['action'] == 'pdf'){
          $ctrlPdf->pdf();
       }
- /**********************************************/
+ 
  /*****************************************************/
       /**************Pages à droit restreint***************/
-      /***************************************************/
+      
       /*********affichage de l'interface Principale**********/ 
 elseif ($_GET['action'] == 'boardPrincipal'){   
-         $ctrlBackend->boardPrincipal();    
+         $ctrlBoard->boardPrincipal();    
       }
 /*********affichage du boarFolio**********/ 
 elseif ($_GET['action'] == 'boardFolio'){
-         $ctrlBackend->boardFolio();     
+         $ctrlBoard->boardFolio();     
       }
 /*********page vue des projets**********/ 
         elseif ($_GET['action'] == 'projectView') {       $ctrlBackend->projectView(); 
@@ -88,7 +88,7 @@ elseif ($_GET['action'] == 'portfolioInsert'){
       }
 /*********affichage du boarCv**********/ 
 elseif ($_GET['action'] == 'boardCv'){
-         $ctrlCv->boardCv();   
+         $ctrlBoard->boardCv();   
       }
 /*********Affichage de la page de modif du profil professionnel**********/ 
      elseif ($_GET['action'] == 'profilPersonnel'){
