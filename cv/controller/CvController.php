@@ -2,11 +2,11 @@
 namespace Controller;
 use Exception;
 class CvController{
-  
+
 
 public function profilPersonnel()
   {
-    $start = session_start();
+    session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
     $adminManager = new \Model\AdminManager();
     $cvManager = new \Model\CvManager();
@@ -37,7 +37,7 @@ public function updateProfilPersonnel($profil)
 }
 public function experienceProfessionnel()
   {
-$start = session_start();
+session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
     $adminManager = new \Model\AdminManager();
     $cvManager = new \Model\CvManager();
@@ -53,7 +53,7 @@ return;
 }
 public function ajoutExPro()
   {
-    $start = session_start();
+   session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){ 
    $adminManager = new \Model\AdminManager();
    $result = $adminManager->identity();
@@ -105,7 +105,7 @@ return;
 }
 public function deleteExp()
   {
-    $start = session_start();
+   session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
     $adminManager = new \Model\AdminManager();
   $cvManager = new \Model\CvManager();
@@ -130,7 +130,7 @@ return;
 
 public function competences()
   {
-    $start = session_start();
+  session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
     $adminManager = new \Model\AdminManager();
    $cvManager = new \Model\CvManager();
@@ -146,7 +146,7 @@ return;
 }
 public function ajoutComp()
   {
-$start = session_start();
+session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){  
   $adminManager = new \Model\AdminManager();
  $result = $adminManager->identity();
@@ -198,7 +198,7 @@ public function insertCompetence($avantage)
 }
 public function deleteCompetences()
   {
-    $start = session_start();
+ session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
     $adminManager = new \Model\AdminManager();
    $cvManager = new \Model\CvManager();
@@ -223,7 +223,7 @@ return;
 
 public function education()
   {
-    $start = session_start();
+ session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){  
    $adminManager = new \Model\AdminManager();
    $cvManager = new \Model\CvManager();
@@ -238,7 +238,7 @@ return;
 }
 public function ajoutEduc()
   {
-$start = session_start();
+session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){  
   $adminManager = new \Model\AdminManager();
  $result = $adminManager->identity();
@@ -289,7 +289,7 @@ public function inserEduc($title,$year,$description)
     }
 public function deleteEducation()
   {
-    $start = session_start();
+   session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){  
     $adminManager = new \Model\AdminManager();
    $cvManager = new \Model\CvManager();

@@ -22,7 +22,7 @@ class BackendController{
 
    public function portfolioInsert()
 {
- $start = session_start();
+session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
     $view = new \Folio\View('backend/projects/portfolioInsert');
     $view->generer(['titreError'=>$this->titreError, 'descriptionError'=>$this->descriptionError, 'technoError'=>$this->technoError, 'commentError'=>$this->commentError,'imageError'=>$this->imageError,'liensError'=>$this->liensError,'titre'=>$this->titre,'description'=>$this->description,'techno'=>$this->techno,'comment'=>$this->comment,'image'=>$this->image,'liens'=>$this->liens,'isSuccess'=>$this->isSuccess]); 
@@ -32,7 +32,7 @@ return;
   }
 public function portfolioInsertAction($image, $description, $techno, $comment, $titre,$liens)
 {
- $start = session_start();
+ session_start();
     
 
   if(!empty($_POST))
@@ -139,7 +139,7 @@ if(empty($this->titre)){
 
 public function imageFolio()
 {
-  $start = session_start();
+session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
   $folioManager = new \Model\FolioManager();
   $portfolio = $folioManager->getFolio($_GET['id']); 
@@ -210,7 +210,7 @@ $folioManager = new \Model\FolioManager();
 
 public function projectView()
   {
-    $start = session_start();
+   session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
     $folioManager = new \Model\FolioManager();
     $portfolio = $folioManager->getFolio($_GET['id']); 
@@ -253,7 +253,7 @@ return;
 
 public function portfolioModif($folioId)
 {
-  $start = session_start();
+session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){ 
     $folioManager = new \Model\FolioManager();
     $portfolio = $folioManager->getFolio($_GET['id']); 
@@ -267,7 +267,7 @@ public function portfolioModif($folioId)
 
      public function portfolioModifAction($folioId,$description, $techno, $comment, $titre,$liens)
     {    
-$start = session_start();
+session_start();
 if (isset($_GET['id']) && $_GET['id'] > 0) {
   if(!empty($_POST))
 {

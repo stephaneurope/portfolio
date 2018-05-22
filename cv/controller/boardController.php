@@ -6,7 +6,7 @@ class BoardController{
 
 public function boardPrincipal()
   {
-    $start = session_start();
+ session_start();
     if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){ 
     $session = new \App\MessageFlash();
     $view = new \Folio\View('backend/board/interface');
@@ -20,7 +20,7 @@ public function boardPrincipal()
 
 public function boardFolio()
 {
- $start = session_start();
+session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){ 
     $folioManager = new \Model\FolioManager();
     $portfolio = $folioManager->getFolio2(); 
@@ -34,7 +34,7 @@ public function boardFolio()
 
 public function boardCv()
   {
-    $start = session_start();
+session_start();
         if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){  
  $view = new \Folio\View('backend/board/boardCv');
  $view->generer([]); 

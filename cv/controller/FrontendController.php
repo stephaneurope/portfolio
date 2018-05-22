@@ -20,7 +20,7 @@ class FrontendController{
 }
 public function portfolio()
   {
-    $start = session_start();  
+   session_start();  
     $folioManager = new \Model\FolioManager();
     $portfolio = $folioManager->getFolio($_GET['id']); 
     $portfol = $folioManager->getFolio2(); 
@@ -34,7 +34,7 @@ public function portfolio()
 
 public function cv()
   {
-    $start = session_start();  
+    session_start();  
     $adminManager = new \Model\AdminManager();
     $cvManager = new \Model\CvManager();
     $result = $adminManager->identity();  
