@@ -32,8 +32,7 @@ public function updateProfilPersonnel($profil)
         $session = new \App\MessageFlash();
         $session->setFlash('Tous les champs ne sont pas remplis','');
         header('location:index.php?action=profilPersonnel');
-        exit;
-       
+
 }
 public function experienceProfessionnel()
   {
@@ -169,12 +168,13 @@ $session = new \App\MessageFlash();
         $session->setFlash('Vos compétences ont été modifiées','');
       header('location:index.php?action=competences');
         exit;
-    }else{
+        return;
+    }
       $session = new \App\MessageFlash();
         $session->setFlash('Tous les champs ne sont pas remplis','');
         header('location:index.php?action=competences');
         exit;
-    }
+    
     }
          else{
       throw new Exception('Désolé une erreur est survenue,votre demande n\'a pas pu aboutir');

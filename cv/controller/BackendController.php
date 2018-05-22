@@ -112,7 +112,6 @@ if(empty($this->titre)){
     $folioManager = new \Model\FolioManager();
     $folioManager->insertfolio($image, $description, $techno, $comment, $titre, $liens);
     header('location:index.php?action=boardFolio');
-    exit();
     return;
 }
     $view = new \Folio\View('backend/projects/portfolioInsert');

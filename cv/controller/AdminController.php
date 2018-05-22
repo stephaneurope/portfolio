@@ -30,7 +30,7 @@ class AdminController{
     $Session->setFlash('Vous etes connecté','');
     
     header('Location: index.php?action=boardPrincipal'); 
-    exit;
+
   }   
   
 }
