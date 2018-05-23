@@ -2,7 +2,7 @@
 namespace  Stephan;
 require "vendor/autoload.php";
 use Exception;
-class Routeur {
+class Router {
   public function checkUrl(){
     $ctrlfrontend = new \Controller\FrontendController();
     $ctrlBackend = new \Controller\BackendController();

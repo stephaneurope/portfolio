@@ -4,7 +4,7 @@ $loader = require 'vendor/autoload.php';
 $loader->addPsr4('Serri\App\\',__DIR__);
 
 $ctrlfrontend = new \Controller\FrontendController();
- $router = new \Stephan\Routeur();
+ $router = new \Stephan\Router();
 
 
  

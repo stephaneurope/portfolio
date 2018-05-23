@@ -66,19 +66,19 @@
     <?= $title ?>
 </title>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="60">
- <div class='page'>  
- <div class="site-content">
+<body>
+  
+ <div id="main">
             <?= $content ?>
    </div>
 
-</div>  
+
   
-       <footer class="site-footer text-center
-        container-fluid">
+       <footer class=" text-center
+        container-fluid navbar-fixed-bottom">
 
         <a href="#about"> <span class="glyphicon glyphicon-chevron-up"></span>  </a><br>
-     <?php if (!$_SESSION) { ?>   <a href="index.php?action=connect" style='color:#fff;'>connexion</a><?php } else { ?><a href="index.php?action=deconnexion" style='color:#fff;'>déconnexion</a><br><a href="index.php?action=boardPrincipal" style='color:#fff;'>administration</a> <?php } ?>
+     <?php if ($_SESSION) { ?><a href="index.php?action=deconnexion" style='color:#fff;'>déconnexion</a><br><a href="index.php?action=boardPrincipal" style='color:#fff;'>administration</a> <?php } ?>
         <h5>© 2018 SERRI-STEPHAN.COM</h5></footer>
 
 
