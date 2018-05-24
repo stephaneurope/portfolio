@@ -1,7 +1,7 @@
 <?php 
 
     $this->title = 'serri stephan' ;
- include APPLICATION_PATH.'/view/frontend/menu.php' ;?>
+ include APPLICATION_PATH.'/view/menus/menu.php' ;?>
     
  <div id="top">
     <div id="cv" class="instaFade">
@@ -48,7 +48,7 @@
                  </form>
 
                     <div class="form-actions">
-                    <a class="btn btn-primary btn1" href="index.php?action=boardCv"><span class="glyphicon glyphicon-arrow-left"> Retour</span></a> </div>
+                    <a class="btn btn-primary btn1 pad" href="index.php?action=boardCv"><span class="glyphicon glyphicon-arrow-left"> Retour</span></a> </div>
                 
            
          

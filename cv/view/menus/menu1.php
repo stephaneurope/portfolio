@@ -3,8 +3,8 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
+            <div class="collapse navbar-collapse menu" id="myNavbar">
+                <ul class="nav navbar-nav menu">
         
                     <li><a href="#skills">Compétences</a></li>
                     <li><a href="#experience">Expérience</a></li>

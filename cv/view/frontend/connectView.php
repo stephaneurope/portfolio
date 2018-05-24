@@ -1,4 +1,4 @@
-<?php  include "menu.php" ?>
+<?php  include APPLICATION_PATH.'/view/menus/menu.php'; ?>
 
 <section id='connect' style='background: #fff;'>
     <div id="login" class="span3 well well-large offset4">

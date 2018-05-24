@@ -1,6 +1,6 @@
 <?php 
     $this->title = 'serri stephan' ;
- include APPLICATION_PATH.'/view/frontend/menu.php' ;?>
+ include APPLICATION_PATH.'/view/menus/menu.php' ;?>
     
  <div id="top">
     <div id="cv" class="instaFade">

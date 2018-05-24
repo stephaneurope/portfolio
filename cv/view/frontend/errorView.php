@@ -1,5 +1,5 @@
 <?php $this->title = 'Serri Stephan'; 
-include "menu.php" ;?>
+include APPLICATION_PATH.'/view/menus/menu.php' ;?>
         
 
     

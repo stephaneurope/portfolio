@@ -1,7 +1,7 @@
 <?php 
 
     $this->title = 'serri stephan' ;
-    include "menu.php" ; ?>
+    include APPLICATION_PATH.'/view/menus/menu.php'; ?>
    <section id="devis" class="container-fluid">
        
                 <h2>DEVIS pour la création ou refonte d'un site internet</h2>
@@ -33,7 +33,7 @@
                 <h2>Contactez-moi</h2>
             </div>
                 
-           <div class="row ">
+           <div class="row" style="padding-bottom:20px;">
                <div class="col-lg-10 col-lg-offset-1">
                     <form id="contact-form" method="post" action='index.php?action=contactForm' role="form">
                         <div class="row">

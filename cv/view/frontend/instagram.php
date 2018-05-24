@@ -1,4 +1,4 @@
-<?php  include "menu.php" ?>
+<?php  include APPLICATION_PATH.'/view/menus/menu.php'; ?>
 <section class="instagram">
 <div class="container insta">
 	

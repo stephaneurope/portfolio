@@ -1,7 +1,7 @@
 <?php 
     session_start();
     $this->title = 'serri stephan' ;
- include "menu1.php" ;
+ include APPLICATION_PATH.'/view/menus/menu1.php';
     ?>
 
    <section id="about" class="container-fluid">
@@ -134,13 +134,7 @@
                 <h2>Portfolio</h2> </div>
     
                <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                     <li data-target="#myCarousel" data-slide-to="3"></li>
                 
-                </ol>
                
                 <div class="carousel-inner" role="listbox">
                   <div class="item active">

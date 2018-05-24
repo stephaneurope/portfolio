@@ -1,7 +1,7 @@
 <?php 
 
     $this->title = 'serri stephan' ;
-    include  APPLICATION_PATH.'/view/frontend/menu.php';   ?>
+    include  APPLICATION_PATH.'/view/menus/menu.php';   ?>
 <!-- Page Content -->
 
 <section>
@@ -27,14 +27,14 @@
           <h3 class="my-3">Technologies Utilisées</h3>
           <?= $portfolio['techno'] ?> <br>
           <?= $portfolio['comment'] ?>
-         <br>
-
- 
-      </div>
-<br>
-                    <div class="form-action">
+  <br>      
+<div class="btnPortfolio">
                     <a class="btn btn-primary" href="index.php?action=boardFolio"><span class="glyphicon glyphicon-arrow-left"> Retour</span></a>
                     </div>
+ 
+      </div>
+
+                    
 </div>
 
 </section>
