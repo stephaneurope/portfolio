@@ -11,20 +11,20 @@ var instagram = {
       for (var i = 0; i < insta.length; i++) {
        
 
-        var insta_id = insta[i].id;  
+        var instaId = insta[i].id;  
         var created =insta[i].created_time;
         var link =insta[i].link;
-        var standard_resolution = insta[i].images.standard_resolution.url;
+        var standardResolution = insta[i].images.standard_resolution.url;
         var thumbnail= insta[i].images.thumbnail.url;
         var name = insta[i].user.full_name;
-        var profile_picture = insta[i].user.profile_picture;
+        var profilePicture = insta[i].user.profile_picture;
         var username = insta[i].user.username;
 
 
         
         var divElt = document.createElement("div");
         divElt.setAttribute("class", "col-lg-3 col-md-4 col-xs-6 photos");
-        divElt.innerHTML = '<img class="img-responsive img-thumbnail" src="' + standard_resolution + '"/>';
+        divElt.innerHTML = '<img class="img-responsive img-thumbnail" src="' + standardResolution + '"/>';
         document.getElementById("rudr_instafeed").appendChild(divElt); 
 
 
@@ -34,7 +34,7 @@ var instagram = {
 
       var divProfil = document.createElement("div");
       divProfil.setAttribute("class", "profile_picture col-lg-3 col-md-4 col-xs-6");
-      divProfil.innerHTML = '<img class="img-responsive img-circle" src="' + profile_picture + '"/>';
+      divProfil.innerHTML = '<img class="img-responsive img-circle" src="' + profilePicture + '"/>';
       document.getElementById("profil").appendChild(divProfil);
 
       var divUsername = document.createElement("div");
@@ -55,6 +55,8 @@ var instagram = {
       a.appendChild(btnElt);
       btn.appendChild(a);
       document.getElementById("profil").appendChild(btn);
+
+
 
 
     });
