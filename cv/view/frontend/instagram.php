@@ -1,22 +1,24 @@
-<?php  include APPLICATION_PATH.'/view/menus/menu.php'; ?>
+<?php  include APPLICATION_PATH.'/view/menus/menu.php'; 
+$this->title = 'serri stephan' ;
+?>
 <section class="instagram">
-<div class="container insta">
-	
-	<div class='insta_police'><i class="fab fa-instagram fa-5x "></i> 
-		<p>Instagram</p></div>
+	<div class="container insta">
+		
+		<div class='insta_police'><i class="fab fa-instagram fa-5x "></i> 
+			<p>Instagram</p></div>
 
-</div>
-<hr>
-<div class="container">
-<div class='row' id="profil"></div>
-</div>
-<hr>
- <div class="container">
- 
-<div  class="row" id="rudr_instafeed"></div>
+		</div>
+		<hr>
+		<div class="container">
+			<div class='row' id="profil"></div>
+		</div>
+		<hr>
+		<div class="container">
+			
+			<div  class="row" id="rudr_instafeed"></div>
 
-</div>
-</section>
+		</div>
+	</section>
 
-<script>instagram.init();</script>
+	<script>instagram.init();</script>
 

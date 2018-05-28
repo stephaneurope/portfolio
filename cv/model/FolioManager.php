@@ -6,58 +6,58 @@ namespace Model;
 class FolioManager extends Manager
 {
 
-public function getFolio($folioId){
+  public function getFolio($folioId){
     $db = $this->dbConnect();
     $req = $db->prepare('SELECT id, image, description,techno,comment, titre, liens  FROM  portfolio WHERE id = ?');
-   $portfolio=$req->execute(array($folioId));
-   $portfolio = $req->fetch();
+    $portfolio=$req->execute(array($folioId));
+    $portfolio = $req->fetch();
     return $portfolio;
-} 
-public function getFolio2(){
+  } 
+  public function getFolio2(){
     $db = $this->dbConnect();
     $req = $db->prepare('SELECT id, image, description,techno,comment, titre, liens  FROM  portfolio');
-   $req->execute(array());
+    $req->execute(array());
     return $req;
-}
-public function insertfolio($image, $description, $techno, $comment, $titre,$liens){
+  }
+  public function insertfolio($image, $description, $techno, $comment, $titre,$liens){
     $db = $this->dbConnect();
     $req = $db->prepare('INSERT INTO portfolio(image, description, techno, comment, titre,liens) VALUES(?, ?, ?, ?, ?,?)');
     $portfolio=$req->execute(array($image, $description, $techno, $comment, $titre, $liens));
     return $portfolio;
-}
+  }
 
-public function deleteProject($folioId){
-  $db = $this->dbConnect();
-  $req = $db->prepare('DELETE FROM portfolio  WHERE id = ?'); 
-  $deleteLines= $req->execute(array($folioId));
-  return $deleteLines;
-}
+  public function deleteProject($folioId){
+    $db = $this->dbConnect();
+    $req = $db->prepare('DELETE FROM portfolio  WHERE id = ?'); 
+    $deleteLines= $req->execute(array($folioId));
+    return $deleteLines;
+  }
 
-public function updateProject($folioId, $description, $techno, $comment, $titre, $liens)
-{
+  public function updateProject($folioId, $description, $techno, $comment, $titre, $liens)
+  {
     $db = $this->dbConnect();
     $req = $db->prepare('UPDATE portfolio SET  description = ?, techno = ?, comment = ?,titre  = ?,liens  = ? WHERE id = ? ');
     $reaffected =$req->execute(array($description, $techno, $comment, $titre, $liens, $folioId));
     return $reaffected;
 
-}
-public function updateImage($folioId, $image)
-{
+  }
+  public function updateImage($folioId, $image)
+  {
     $db = $this->dbConnect();
     $req = $db->prepare('UPDATE portfolio SET image = ? WHERE id = ? ');
     $reaffected =$req->execute(array($image,$folioId));
     return $reaffected;
 
-}
+  }
 
-public function updateProjectNoImage($folioId,$description, $techno, $comment, $titre, $liens)
-{
+  public function updateProjectNoImage($folioId,$description, $techno, $comment, $titre, $liens)
+  {
     $db = $this->dbConnect();
     $req = $db->prepare('UPDATE portfolio SET description = ?, techno = ?, comment = ?,titre  = ?,liens  = ? WHERE id = ? ');
     $reaffectedIm =$req->execute(array($description, $techno, $comment, $titre, $liens,$folioId));
     return $reaffectedIm;
 
-}
+  }
 
 
 

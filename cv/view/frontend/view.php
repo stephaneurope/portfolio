@@ -8,11 +8,11 @@ class View {
   // Titre de la vue (défini dans le fichier vue)
   private $title;
 
-   public function __construct($action) {
+  public function __construct($action) {
     // Détermination du nom du fichier vue à partir de l'action
     $this->fichier = "view/". $action . ".php";
   }
-    
+  
 
   // Génère et affiche la vue
   public function generer($donnees) {
@@ -21,11 +21,11 @@ class View {
     // Génération du gabarit commun utilisant la partie spécifique
     $view = $this->genererFichier('view/frontend/template.php',
       array('title' => $this->title, 'content' => $content));
-     
+    
     // Renvoi de la vue au navigateur
     echo $view;
   }
- 
+  
   // Génère un fichier vue et renvoie le résultat produit
   private function genererFichier($fichier, $donnees) {
     if (file_exists($fichier)) {
@@ -40,9 +40,9 @@ class View {
       return ob_get_clean();
       return;
     }
-      throw new Exception("Fichier '$fichier' introuvable");
+    throw new Exception("Fichier '$fichier' introuvable");
     
   }
-    
-    
+  
+  
 }

@@ -1,6 +1,6 @@
 var Impression = {  
 
-imprimer_bloc:function (titre, objet) {
+	imprimerBloc:function (titre, objet) {
 // Définition de la zone à imprimer
 var zone = document.getElementById(objet).innerHTML;
 
@@ -12,26 +12,26 @@ fen.document.body.style.color = "#000000";
 fen.document.body.style.backgroundColor = "#FFFFFF";
 fen.document.body.style.padding = "20px";
 
- 
+
 // Ajout des données a imprimer
 fen.document.title = titre;
 fen.document.body.innerHTML += " " + zone + " ";
- 
+
 fen.window.print();
- 
+
 //Fermeture du popup
 fen.window.close();
 return true;
-          
-       
+
+
 },
 imprimer:function (){
 	window.addEventListener("load", function() {
-var imprime = document.getElementById("btn_imprime");
-imprime.addEventListener("click", function (e) { 
-	Impression.imprimer_bloc("titre", "imprime_moi"),false;
-});
- });
+		var imprime = document.getElementById("btn_imprime");
+		imprime.addEventListener("click", function (e) { 
+			Impression.imprimerBloc("titre", "imprime_moi"),false;
+		});
+	});
 }
 };
-//Impression.imprimer();
+

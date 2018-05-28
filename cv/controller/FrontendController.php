@@ -1,7 +1,7 @@
 <?php
 namespace Controller;
 use Exception;
-  use Spipu\Html2Pdf\Html2Pdf;
+use Spipu\Html2Pdf\Html2Pdf;
 use Spipu\Html2Pdf\Exception\Html2PdfException;
 use Spipu\Html2Pdf\Exception\ExceptionFormatter;  
 
@@ -10,6 +10,7 @@ class FrontendController{
   
   public function accueil()
   {
+    session_start();
     $adminManager = new \Model\AdminManager();
     $result = $adminManager->identity();  
     $folioManager = new \Model\FolioManager();
@@ -19,21 +20,21 @@ class FrontendController{
     
 }
 public function portfolio()
-  {
-   session_start();  
-    $folioManager = new \Model\FolioManager();
-    $portfolio = $folioManager->getFolio($_GET['id']); 
-    $portfol = $folioManager->getFolio2(); 
-    $view = new \Folio\View('frontend/portfolioView');
-    $view->generer(['portfolio'=>$portfolio,'portfol'=>$portfol]);
-    
+{
+ session_start();  
+ $folioManager = new \Model\FolioManager();
+ $portfolio = $folioManager->getFolio($_GET['id']); 
+ $portfol = $folioManager->getFolio2(); 
+ $view = new \Folio\View('frontend/portfolioView');
+ $view->generer(['portfolio'=>$portfolio,'portfol'=>$portfol]);
+ 
 }
 
 
-  
+
 
 public function cv()
-  {
+{
     session_start();  
     $adminManager = new \Model\AdminManager();
     $cvManager = new \Model\CvManager();
@@ -51,16 +52,16 @@ public function cv()
 
 public function error()
 {
-     
+   
     $view = new \Folio\View('frontend/errorView');
     $view->generer([]);
     
- 
+    
 }
- public function connect(){ 
- $session = new \App\MessageFlash();
- $view = new \Folio\View('frontend/connectView'); 
- $view->generer(['session' => $session]);
+public function connect(){ 
+   $session = new \App\MessageFlash();
+   $view = new \Folio\View('frontend/connectView'); 
+   $view->generer(['session' => $session]);
 }
 
 

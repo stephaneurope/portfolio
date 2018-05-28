@@ -11,13 +11,13 @@
     },
 
     "autoload": {
-    "psr-4" :{
-        "Stephan\\": "app/",
-        "Model\\": "model/",
-        "Controller\\": "controller/",
-        "Folio\\": "view/frontend/",
-        "App\\": "app/"
-        
-     }
-}
+        "psr-4" :{
+            "Stephan\\": "app/",
+            "Model\\": "model/",
+            "Controller\\": "controller/",
+            "Folio\\": "view/frontend/",
+            "App\\": "app/"
+            
+        }
+    }
 }

@@ -1,4 +1,6 @@
-<?php  include APPLICATION_PATH.'/view/menus/menu.php'; ?>
+<?php  
+$this->title = 'serri stephan' ;
+include APPLICATION_PATH.'/view/menus/menu.php'; ?>
 
 <section id='connect' style='background: #fff;'>
     <div id="login" class="span3 well well-large offset4">
@@ -13,9 +15,9 @@
                 <br>
                 <br>
                 <input class="btn btn-success" type="submit" value="Login" /> </form>
+            </div>
+            <div class="flashconnect">
+                <?php $session->flash();?>
+            </div>
         </div>
-        <div class="flashconnect">
-            <?php $session->flash();?>
-        </div>
-    </div>
     </section>

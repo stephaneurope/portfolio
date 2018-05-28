@@ -1,36 +1,40 @@
 /* GENERAL*/
 * {
     margin: 0;}
-html {
+    html {
 
-    height: 100%;
-   width: 100%;
-   margin: 0;
-   padding: 0;
-}
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
 
-body {
-   
-    font-family: "Lato", sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #fff;
-  height: 100%;
+    body {
+     
+        font-family: "Lato", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        height: 100%;
 
-}
-#main{
-   padding-bottom: 85px;
-}
+    }
+    #main{
+     padding-bottom: 85px;
+ }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
     font-weight: bold;
     font-family: 'Rokkitt','sans-serif';
 
+}
+ul,ol
+{
+list-style:none;
 }
 
 section {
@@ -128,7 +132,7 @@ section .heading h2 {
 #devis {
     padding-top: 50px;
     background: #fff;
-     margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 #devis  h2 {
@@ -181,12 +185,12 @@ section .heading h2 {
 #about .heading h3 {
     color: #000;
     font-size:30px;
-font-weight: 600;
-max-width:300px;
-box-shadow: 2px 2px 20px black;
-margin-right: auto;
-margin-left: auto;
-border-radius: 10px;
+    font-weight: 600;
+    max-width:300px;
+    box-shadow: 2px 2px 20px black;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
 
 }
 /*****Button**********/
@@ -254,7 +258,7 @@ border-radius: 10px;
 #skills .progress {
     height: 5%;
     margin: 30px 20px;
-    backface-visibility: #ddd;
+
 }
 #skills .progress-bar {
     background: #d82c2e;
@@ -497,12 +501,15 @@ education-block .red-divider {
 .folioView {
     padding-bottom: 80px;
 }
-
+.folview{
+    max-height: 600px;
+}
 /* FOOTER */
 footer {
-background: #333;
-position: relative;
-bottom:0;
+    background: #333;
+    position: relative;
+    bottom:0;
+    padding:25px;
 
 }
 footer .glyphicon {
@@ -539,7 +546,7 @@ footer h5 {
 }
 .heading {
     text-align: center;
- 
+    
 }
 
 .heading h2 {
@@ -604,7 +611,7 @@ footer h5 {
     margin-top: 2%;
 }
 /*********class exception****************/
- .exception {
+.exception {
     width:100%;
     color: black;
     margin: 0 auto;
@@ -615,7 +622,7 @@ footer h5 {
     padding: 20px;
     position: absolute;
     top: 40%;
- 
+    
 
 }
 /************instagram****************/
@@ -656,45 +663,72 @@ footer h5 {
 /***************************/
 .imprime {
     text-align: center;
-    margin: 0, auto;
+    margin: 0  auto;
     padding-bottom: 20px;
 }
+.imprime a{
+    text-decoration: none;
+    color:#fff;
+    background-color: #D9534F;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.imprime a:hover{
+    background-color: red;
+}
 @media screen and (max-width: 1025px) {
-.navbar-header {
-float: none;
-}
-.navbar-toggle {
-display: block;
-}
-.navbar-collapse {
-border-top: 1px solid transparent;
-box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-}
-.navbar-collapse.collapse {
-display: none!important;
-}
-.navbar-nav {
-float: none!important;
-margin: 7.5px -15px;
-}
-.navbar-nav>li {
-float: none;
-}
-.navbar-nav>li>a {
-padding-top: 10px;
-padding-bottom: 10px;
-}
-.navbar-text {
-float: none;
-margin: 15px 0;
-}
-/* cette classe est à ajouter lorsque que vous utilisez une version de Bootstap supérieure ou égale à la 3.1.0 */
-.navbar-collapse.collapse.in {
-display: block!important;
-}
-.collapsing {
-overflow: hidden!important;
-}
+    .navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin: 7.5px -15px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .navbar-text {
+        float: none;
+        margin: 15px 0;
+    }
+    /* cette classe est à ajouter lorsque que vous utilisez une version de Bootstap supérieure ou égale à la 3.1.0 */
+    .navbar-collapse.collapse.in {
+        display: block!important;
+    }
+    .collapsing {
+        overflow: hidden!important;
+    }
 
 }
 @media screen and (max-width: 768px) {
@@ -762,7 +796,7 @@ overflow: hidden!important;
         font-size: 11px;
     }
     
-   
+    
     
     .admin {
         margin-bottom: 130px;
@@ -782,73 +816,73 @@ overflow: hidden!important;
         margin-top: 5px;
     }
 
-   #rudr_instafeed
-   {
-    padding-bottom: 60px;
-   }
+    #rudr_instafeed
+    {
+        padding-bottom: 60px;
+    }
     #devis  h2 {
-    color: black;
-    font-size: 30px;
-    text-align: center;
-    font-weight: 400;
-    line-height: 30px;
-    margin-bottom: 50px;
-}
-#devis  h5 {
-    color: black;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 20px;
-}
-#devis p{
-    color:grey;
-    border-bottom: 15px;
-}
-.rimg img{
-    height:200px;
-    margin-bottom: 5px;
-    margin-top: 10px;
-}
-.contact {
-    margin-bottom: -5px;
-    padding-bottom: 30px;
-}
- #contact h2{
-font-size: 22px;
-}
- #contact label{
-text-align: left!important;
-font-size: 16px;
-margin-top: 0px;
-margin-bottom: 0px;
-}
- 
-#contact-form{
-    font-size:15px;
-    margin-bottom: 80px;
-}
-.comments{
-    font-size:15px;
-}
-.button2{
-padding:10px;
-}
-.bar input{
-    max-height:30px;
-}
-.my-4{
-    margin-top: 50px;
-}
-.admin my-4{
-    margin-top: 10px;
-}
-.btn0{
-    margin-top: 5px;
-}
-.btn1{
-    margin-top: 5px;
-}
-.btn2{
-    margin-top: 5px;
-}
+        color: black;
+        font-size: 30px;
+        text-align: center;
+        font-weight: 400;
+        line-height: 30px;
+        margin-bottom: 50px;
+    }
+    #devis  h5 {
+        color: black;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 20px;
+    }
+    #devis p{
+        color:grey;
+        border-bottom: 15px;
+    }
+    .rimg img{
+        height:200px;
+        margin-bottom: 5px;
+        margin-top: 10px;
+    }
+    .contact {
+        margin-bottom: -5px;
+        padding-bottom: 30px;
+    }
+    #contact h2{
+        font-size: 22px;
+    }
+    #contact label{
+        text-align: left!important;
+        font-size: 16px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    
+    #contact-form{
+        font-size:15px;
+        margin-bottom: 80px;
+    }
+    .comments{
+        font-size:15px;
+    }
+    .button2{
+        padding:10px;
+    }
+    .bar input{
+        max-height:30px;
+    }
+    .my-4{
+        margin-top: 50px;
+    }
+    .admin my-4{
+        margin-top: 10px;
+    }
+    .btn0{
+        margin-top: 5px;
+    }
+    .btn1{
+        margin-top: 5px;
+    }
+    .btn2{
+        margin-top: 5px;
+    }
 }
