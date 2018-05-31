@@ -13,7 +13,8 @@
     </div>  
     <div class="form-group">   
       <label for="description">Description:</label>
-      <input type="text" class="form-control" id="description" name="description" placeholder="Description" value="<?= $portfolio['description']?>">
+      <p><textarea name="description"><?= $portfolio['description']?></textarea></p>
+     
       <span class="help-inline"><?php echo $descriptionError ;?></span>
     </div>
     <div class="form-group">

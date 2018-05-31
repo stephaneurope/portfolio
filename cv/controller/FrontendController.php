@@ -10,7 +10,7 @@ class FrontendController{
   
   public function accueil()
   {
-    session_start();
+  
     $adminManager = new \Model\AdminManager();
     $result = $adminManager->identity();  
     $folioManager = new \Model\FolioManager();
@@ -21,7 +21,7 @@ class FrontendController{
 }
 public function portfolio()
 {
- session_start();  
+
  $folioManager = new \Model\FolioManager();
  $portfolio = $folioManager->getFolio($_GET['id']); 
  $portfol = $folioManager->getFolio2(); 
@@ -35,7 +35,7 @@ public function portfolio()
 
 public function cv()
 {
-    session_start();  
+     
     $adminManager = new \Model\AdminManager();
     $cvManager = new \Model\CvManager();
     $result = $adminManager->identity();  
@@ -63,7 +63,11 @@ public function connect(){
    $view = new \Folio\View('frontend/connectView'); 
    $view->generer(['session' => $session]);
 }
+public function rgpd(){ 
 
+   $view = new \Folio\View('frontend/rgpd'); 
+   $view->generer([]);
+}
 
 
 

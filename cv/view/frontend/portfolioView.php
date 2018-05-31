@@ -24,9 +24,9 @@ include APPLICATION_PATH.'/view/menus/menu.php' ;
     </div>
     
     <div class="col-md-4">
-      <h3 class="my-3">Description du Projet</h3>
+      <h3 >Description du Projet</h3>
       <p><?= $portfolio['description'] ?></p>
-      <h3 class="my-3">Technologies Utilisées</h3>
+      <h3>Technologies Utilisées</h3>
       <?= $portfolio['techno'] ?> <br>
       <?= $portfolio['comment'] ?>
       <br>
@@ -53,7 +53,7 @@ include APPLICATION_PATH.'/view/menus/menu.php' ;
       
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <a class="thumbnail" href="" target="_blank"> <img src="/cv/public/images/portfolio1.jpeg" class="img-responsive" alt="portfolio"> </a></div>
+          <a class="thumbnail" href="" target="_blank"> <img src="/cv/public/images/portfolio1.jpg" class="img-responsive" alt="portfolio"> </a></div>
           
           
           <?php while ($data = $portfol->fetch())

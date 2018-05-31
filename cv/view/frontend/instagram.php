@@ -5,7 +5,7 @@ $this->title = 'serri stephan' ;
 	<div class="container insta">
 		
 		<div class='insta_police'><i class="fab fa-instagram fa-5x "></i> 
-			<p>Instagram</p></div>
+			<h1>Instagram</h1></div>
 
 		</div>
 		<hr>

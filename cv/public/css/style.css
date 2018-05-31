@@ -52,7 +52,7 @@ section .heading h2 {
 }
 
 
-.insta_police p {
+.insta_police h1 {
     display: inline;
     font-family: "Pacifico";
     font-size: 2em;
@@ -558,7 +558,17 @@ footer h5 {
     margin-bottom: 20px;
 }
 
-
+#rgpd a{
+    text-decoration: none;
+    color:#fff;
+}
+.rgpd {
+    padding:20px;
+ 
+}
+.rgpd h1 {
+    margin-top:50px;
+}
 #contact-form {
     font-size: 20px;
     background: #fff;
@@ -647,24 +657,34 @@ footer h5 {
 /********icone technologie**********/
 .fa-html5 {
     color: orange;
+    padding-right:5px;
+    
 }
 .fa-css3-alt {
     color: blue;
+    padding-right:5px;
+    
 }
 .fa-wordpress {
     color: #0087BE;
+    padding-right:5px;
+   
 }
 .fa-js {
     color: #F7DF1E;
+   padding-right:5px;
+  
 }
 .fa-php {
     color: #F7DF1E;
+    padding-right:5px;
+    
 }
 /***************************/
 .imprime {
     text-align: center;
     margin: 0  auto;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 .imprime a{
     text-decoration: none;

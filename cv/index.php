@@ -9,7 +9,6 @@ $router = new \Stephan\Router();
 if (isset($_GET['action'])){
 	$router->checkUrl($_GET['action']);}
 	else {
-
+		session_start();
 		$ctrlfrontend->accueil();
-
 	}

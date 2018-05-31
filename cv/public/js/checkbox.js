@@ -2,7 +2,7 @@ $(document).ready(function(){
 	$(".chkbx").click(function(){
 		var text="";
 		$(".chkbx:checked").each(function(){
-			text+=$(this).val()+ " ";
+			text+=$(this).val()+ "  ";
 		});
 		text=text.substring(0,text.length-1);
 		$("#selectedtext").val(text);

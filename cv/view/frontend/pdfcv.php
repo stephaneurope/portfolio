@@ -1,19 +1,8 @@
 <link type="text/css" href="./public/css/pdf.css" rel="stylesheet" />
 <style type="text/css"></style>
-
-
-<?php
-
-require "vendor/autoload.php";
-
-
-?>
-
-
-
+<?php require "vendor/autoload.php";?>
 
 <page backtop="10mm" backleft="05mm" backright="05mm" backbottom="10mm">
-
 	
     <table>
         <tr>

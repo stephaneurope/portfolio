@@ -8,7 +8,7 @@ include  APPLICATION_PATH.'/view/menus/menu.php';   ?>
   <div class="container">
 
     <!-- Portfolio Item Heading -->
-    <h1 class="my-4"><?= $portfolio['titre'] ?>
+    <h1 class="my-4"><?= htmlspecialchars($portfolio['titre']) ?>
     
   </h1>
 
@@ -23,7 +23,7 @@ include  APPLICATION_PATH.'/view/menus/menu.php';   ?>
     
     <div class="col-md-4">
       <h3 class="my-3">Description du Projet</h3>
-      <p><?= $portfolio['description'] ?></p>
+      <p><?=  $portfolio['description'] ?></p>
       <h3 class="my-3">Technologies Utilisées</h3>
       <?= $portfolio['techno'] ?> <br>
       <?= $portfolio['comment'] ?>

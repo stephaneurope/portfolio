@@ -30,7 +30,7 @@ class PdfController{
         
         $html2pdf->writeHTML($content);
         ob_end_clean();
-        $html2pdf->output('pdf.pdf');
+        $html2pdf->output('cv.pdf');
         
     } catch (Html2PdfException $e) {
         $html2pdf->clean();

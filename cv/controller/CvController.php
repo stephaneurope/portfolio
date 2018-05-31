@@ -6,7 +6,7 @@ class CvController{
 
   public function profilPersonnel()
   {
-    session_start();
+
     if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
       $adminManager = new \Model\AdminManager();
       $cvManager = new \Model\CvManager();
@@ -36,7 +36,6 @@ class CvController{
  }
  public function experienceProfessionnel()
  {
-  session_start();
   if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
     $adminManager = new \Model\AdminManager();
     $cvManager = new \Model\CvManager();
@@ -52,7 +51,6 @@ class CvController{
 }
 public function ajoutExPro()
 {
- session_start();
  if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){ 
    $adminManager = new \Model\AdminManager();
    $result = $adminManager->identity();
@@ -104,7 +102,6 @@ public function insertExPro($title,$period,$description)
 }
 public function deleteExp()
 {
- session_start();
  if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
   $adminManager = new \Model\AdminManager();
   $cvManager = new \Model\CvManager();
@@ -129,7 +126,6 @@ public function deleteExPro()
 
 public function competences()
 {
-  session_start();
   if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
     $adminManager = new \Model\AdminManager();
     $cvManager = new \Model\CvManager();
@@ -145,7 +141,6 @@ public function competences()
 }
 public function ajoutComp()
 {
-  session_start();
   if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){  
     $adminManager = new \Model\AdminManager();
     $result = $adminManager->identity();
@@ -198,7 +193,6 @@ public function insertCompetence($avantage)
 }
 public function deleteCompetences()
 {
- session_start();
  if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
   $adminManager = new \Model\AdminManager();
   $cvManager = new \Model\CvManager();
@@ -223,7 +217,6 @@ public function deleteCompet()
 
 public function education()
 {
- session_start();
  if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){  
    $adminManager = new \Model\AdminManager();
    $cvManager = new \Model\CvManager();
@@ -238,7 +231,6 @@ public function education()
 }
 public function ajoutEduc()
 {
-  session_start();
   if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){  
     $adminManager = new \Model\AdminManager();
     $result = $adminManager->identity();
@@ -289,7 +281,6 @@ public function inserEduc($title,$year,$description)
 }
 public function deleteEducation()
 {
- session_start();
  if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){  
   $adminManager = new \Model\AdminManager();
   $cvManager = new \Model\CvManager();

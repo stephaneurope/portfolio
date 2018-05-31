@@ -136,7 +136,7 @@ include APPLICATION_PATH.'/view/menus/menu1.php';
                                                      
                                                     <div class="carousel-inner" role="listbox">
                                                       <div class="item active">
-                                                        <a class="thumbnail" href="" target="portfolio" > <img src="/cv/public/images/portfolio1.jpeg" alt="portfolio" class="img-responsive" > </a></div>
+                                                        <a class="thumbnail" href="" target="portfolio" > <img src="/cv/public/images/portfolio1.jpg" alt="portfolio" class="img-responsive" > </a></div>
                                                         
                                                         
                                                         <?php while ($data = $portfolio->fetch())

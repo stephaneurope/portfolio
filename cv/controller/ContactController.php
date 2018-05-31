@@ -13,19 +13,21 @@ class ContactController{
   public $phoneError =  '';
   public $mailError =  '';
   public $messageError = '' ;
+  public $rgpdError = '' ;
   public $message1 = '';
+
   
   public function contact()
   {
-   session_start(); 
+ 
    $view = new \Folio\View('frontend/contactView');
-   $view->generer(['firstnameError'=>$this->firstnameError, 'nameError'=>$this->nameError,'phoneError'=>$this->phoneError, 'mailError'=>$this->mailError,'messageError'=>$this->messageError, 'message1' =>$this->message1]);
+   $view->generer(['firstnameError'=>$this->firstnameError, 'nameError'=>$this->nameError,'phoneError'=>$this->phoneError, 'mailError'=>$this->mailError,'messageError'=>$this->messageError,'rgpdError'=>$this->rgpdError, 'message1' =>$this->message1]);
    
  }
  public function contactForm() {
-   session_start();  
+
    $firstname = $name = $this->email = $this->phone = $message = "";
-   $this->firstnameError = $this->nameError = $this->mailError = $this->phoneError = $this->messageError = "";
+   $this->firstnameError = $this->nameError = $this->mailError = $this->phoneError = $this->rgpdError = $this->messageError = "";
    $isSuccess = false;
    $emailTo = "serri.stephan@gmail.com";
    if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -35,9 +37,9 @@ class ContactController{
     $email = $this->test_input($_POST["email"]);
     $phone = $this->test_input($_POST["phone"]);
     $message = $this->test_input($_POST["message"]);
+    $rgpd = $_POST["rgpd"];
     $isSuccess = true; 
     $emailText = "";
-    
     if (empty($firstname))
     {
 
@@ -81,7 +83,15 @@ else
 {
   $emailText .= "Phone: $phone\n";
 }
-
+if (empty($rgpd))
+{
+    $this->rgpdError ="Pour envoyer le message veuillez cocher la case!"; 
+    $isSuccess = false;    
+}
+else
+{
+  $emailText .= "Consentement: $rgpd\n";
+}
 if (empty($message))
 {
 
@@ -93,20 +103,24 @@ else
   $emailText .= "Message: $message\n";
 }
 
+
+
 if($isSuccess) 
 {
   
   $headers = "From: $firstname $name' <$email>\r\nReply-To: $email";
   mail($emailTo, "Un message de serri-stephan.com", $emailText, $headers);
-  $firstname = $name = $email = $phone = $message = "";
+  $firstname = $name = $email = $phone = $message = NULL;
+  
   $this->message1 = 'Votre message a bien été envoyé!! Merci!';
+  unset($_POST);
 }
 
 
 } 
 
 $view = new \Folio\View('frontend/contactView');
-$view->generer(['firstnameError'=>$this->firstnameError, 'nameError'=>$this->nameError,'phoneError'=>$this->phoneError, 'mailError'=>$this->mailError,'messageError'=>$this->messageError,'message1' =>$this->message1]);
+$view->generer(['firstnameError'=>$this->firstnameError, 'nameError'=>$this->nameError,'phoneError'=>$this->phoneError, 'mailError'=>$this->mailError,'messageError'=>$this->messageError,'rgpdError'=>$this->rgpdError,'message1' =>$this->message1]);
 
 }
 public function isEmail($email) 

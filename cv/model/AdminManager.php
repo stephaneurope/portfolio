@@ -1,8 +1,6 @@
 <?php
 namespace Model;
 
-//require "vendor/autoload.php";
-
 class AdminManager extends Manager
 {
 

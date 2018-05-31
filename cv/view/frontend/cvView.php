@@ -28,24 +28,24 @@ include APPLICATION_PATH.'/view/menus/menu.php' ;?>
                     
                     <div id="mainArea" class="quickFade delayFive">
                         <section>
-                            <article>  
+                     
                                 <div class="sectionTitle">
-                                    <h1> Profil Personnel</h1> </div><br>
+                                    <h2> Profil Personnel</h2> </div><br>
                                     <div class="sectionContent">
                                         <?php while ($data = $proCv->fetch()){  
                                             echo $data['profil'];} ?>
                                         </div>
-                                    </article>
+                                  
                                     <div class="clear"></div>
                                 </section>
                                 <section>
                                     <div class="sectionTitle">
-                                        <h1>Experience Professionelle</h1> </div>
+                                        <h2>Experience Professionelle</h2> </div>
                                         <div class="sectionContent">
                                            <?php while ($data1 = $expCv->fetch()){ ?>
                                             <article>
-                                                <h2><?=$data1['title'];?></h2>
-                                                <p class="subDetails"><?=$data1['period'];?></p>
+                                                <h2><?= htmlspecialchars($data1['title']);?></h2>
+                                                <p class="subDetails"><?= htmlspecialchars($data1['period']);?></p>
                                                 <p><?=$data1['description'];?></p>
                                             </article>
                                             <?php }  ?>
@@ -54,11 +54,11 @@ include APPLICATION_PATH.'/view/menus/menu.php' ;?>
                                     </section>
                                     <section>
                                         <div class="sectionTitle">
-                                            <h1>Compétences</h1> </div>
+                                            <h2>Compétences</h2> </div>
                                             <div class="sectionContent">
                                                 <ul class="keySkills">
                                                     <?php while ($data2 = $avCv->fetch()){ ?>
-                                                        <li><?=$data2['avantage'];?></li>
+                                                        <li><?= htmlspecialchars($data2['avantage']);?></li>
                                                         <?php } ?>
                                                     </ul>
                                                 </div>
@@ -66,12 +66,12 @@ include APPLICATION_PATH.'/view/menus/menu.php' ;?>
                                             </section>
                                             <section>
                                                 <div class="sectionTitle">
-                                                    <h1>Formation</h1> </div>
+                                                    <h2>Formation</h2> </div>
                                                     <div class="sectionContent">
                                                         <?php while ($data3 = $edCv->fetch()){ ?>
                                                             <article>
-                                                                <h2><?=$data3['title'];?></h2>
-                                                                <p class="subDetails"><?=$data3['year'];?></p>
+                                                                <h2><?= htmlspecialchars($data3['title']);?></h2>
+                                                                <p class="subDetails"><?= htmlspecialchars($data3['year']);?></p>
                                                                 <p><?=$data3['description'];?></p>
                                                             </article>
                                                             <?php } ?>  
